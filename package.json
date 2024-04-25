@@ -1,0 +1,23 @@
+{
+  "name": "sp2_crows_nest",
+  "version": "0.0.1",
+  "description": "Auction application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier -w src/**/*.js"
+  },
+  "repository": {
+    "type": "module",
+    "url": "git+https://github.com/Anne-Serine/Semester-Project-2_crowsNest.git"
+  },
+  "author": "Anne-Serine Johannessen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anne-Serine/Semester-Project-2_crowsNest/issues"
+  },
+  "homepage": "https://github.com/Anne-Serine/Semester-Project-2_crowsNest#readme",
+  "dependencies": {
+    "prettier": "^3.2.5"
+  }
+}
