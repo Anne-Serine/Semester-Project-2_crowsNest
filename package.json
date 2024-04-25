@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Anne-Serine/Semester-Project-2_crowsNest#readme",
   "dependencies": {
+    "live-server": "^1.2.2",
     "prettier": "^3.2.5"
   },
   "devDependencies": {
