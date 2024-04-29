@@ -3,6 +3,10 @@ module.exports = {
   content: ["**/*.html"],
   theme: {
     extend: {
+      container: {
+        padding: "4rem",
+        center: true
+      },
       colors: {
         "cn-white": "#FFFFFF",
         "cn-light-grey": "#F1F1F1",
@@ -12,7 +16,6 @@ module.exports = {
         "cn-black": "#161616"
       },
     },
-
   },
   plugins: [],
 }
