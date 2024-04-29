@@ -11,9 +11,9 @@
   <link href="../src/css/style.css" rel="stylesheet">
   <title>Crow's Nest | Home</title>
 </head>
-<body>
+<body class="flex flex-col flex-nowrap h-full min-h-screen">
   <header class="bg-cn-orange">
-    <div class="container p-3 flex items-center justify-between">
+    <div class="container flex items-center justify-between">
       <a href="#">
         <img src="/media/cn-logo.svg" class="w-12 md:min-w-20" alt="Crow's Nest Logo">
       </a>
@@ -37,7 +37,38 @@
       </div>
     </div>
   </header>
+
+hello
   
   
+  <footer class="bg-cn-orange fixed bottom-0 w-full lg:relative mt-auto">
+    <div class="container flex justify-between items-center lg:hidden">
+      <div class="flex items-center gap-5">
+        <a href="#">
+          <img src="/media/home.svg" alt="home-icon">
+        </a>
+        <a href="#">
+          <img src="/media/profile.svg" alt="profile-icon">
+        </a>
+      </div>
+      <button>Sell</button>
+      <a href="#" class="flex items-center">
+        <img src="/media/piggy-bank.svg" class="flex mr-2" alt="credits-icon">
+        Credit
+      </a>
+    </div>
+    <div class="container hidden lg:flex justify-between">
+      <p>789 Heritage Lane,<br>
+        Auction City Biddington,<br>
+        Auctionland 98765
+      </p>
+      <img src="/media/cn-logo.svg" alt="crow's nest logo" class="size-20">
+      <div class="flex flex-col">
+        <h3>Contact:</h3>
+        <a href="tel:+4712345678">+47 123 45 678</a>
+        <a href="mailto:crows_nest@email.com">crows_nest@email.com</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
