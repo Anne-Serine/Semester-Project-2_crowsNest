@@ -6,10 +6,25 @@
   html {
     font-family: "Montserrat", system-ui, sans-serif;
   }
+
   h1,
   h2, 
   h3 {
     font-family: "Poppins", system-ui, sans-serif;
+    font-weight: 500;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
   }
 }
 
