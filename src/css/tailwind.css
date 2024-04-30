@@ -29,7 +29,7 @@
 }
 
 button {
-  @apply bg-cn-black p-1 px-6 text-cn-white rounded-full ; 
+  @apply bg-cn-black p-1 px-6 text-cn-white rounded-full min-w-32; 
 }
 
 .container {
