@@ -35,3 +35,26 @@ button {
 .container {
   @apply p-3
 }
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"] {
+  @apply rounded-full p-1 px-4
+}
+
+label {
+  @apply block
+}
+
+.logo-logged-out {
+  left: auto;
+  top: -65px;
+}
+
+@media screen and (min-width: 64rem) {
+  .logo-logged-out {
+    left: -88px;
+    top: 40px;
+  }
+}
