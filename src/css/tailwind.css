@@ -36,12 +36,17 @@ button {
   @apply p-3
 }
 
-input[type="text"],
+input:not([type="checkbox"], [type="radio"]) {
+  @apply rounded-full p-1 px-4;
+}
+
+/* input[type="text"],
 input[type="email"],
 input[type="password"],
-input[type="search"] {
+input[type="search"],
+input[type="url"] {
   @apply rounded-full p-1 px-4
-}
+} */
 
 label {
   @apply block

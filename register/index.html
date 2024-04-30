@@ -36,8 +36,12 @@
               <label for="password">Password</label>
               <input type="password" name="password" id="password" required minlength="8" title="The password must be at least 8 characters">
             </div>
+            <div class="mb-3">
+              <label for="avatar">Avatar</label>
+              <input type="url" name="avatar" id="avatar" title="The avatar image must be a live url">
+            </div>
             <div class="alert alert-danger d-none" id="registerAlertMessage" role="alert"></div>
-            <button type="submit" class="btn btn-primary px-4 py-2" id="registerSubmitBtn">Register</button>
+            <button type="submit" class="mt-5 btn btn-primary px-4 py-2" id="registerSubmitBtn">Register</button>
           </form>
         </div>
         <div class="container mt-5 pb-5">
