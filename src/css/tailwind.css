@@ -29,7 +29,7 @@
 }
 
 button {
-  @apply bg-cn-black p-1 px-6 text-cn-white rounded-full min-w-32; 
+  @apply bg-cn-black p-1 px-6 text-cn-white rounded-full min-w-0 items-center; 
 }
 
 .container {
@@ -52,9 +52,14 @@ label {
   @apply block
 }
 
-.logo-logged-out {
+.logo-logged-out,
+.profile-avatar {
   left: auto;
   top: -65px;
+}
+
+.profile-avatar {
+  top: -80px;
 }
 
 @media screen and (min-width: 64rem) {
