@@ -69,3 +69,15 @@ label {
     top: 40px;
   }
 }
+
+.alert {
+  @apply py-1 px-2
+}
+
+.alert.error {
+  @apply bg-red-300 font-semibold;
+}
+
+.alert.success {
+  @apply bg-green-400 font-semibold;
+}

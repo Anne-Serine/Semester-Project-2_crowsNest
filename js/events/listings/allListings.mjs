@@ -1,4 +1,4 @@
-import { getAllListings } from "../../api/posts/allListings.mjs";
+import { getAllListings } from "../../api/listings/allListings.mjs";
 import { createListingCard } from "../../templates/listingCard.mjs";
 
 export async function listingsContainer() {

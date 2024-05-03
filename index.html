@@ -21,13 +21,17 @@
         <nav class="hidden lg:flex">
           <ul class="flex uppercase gap-8">
             <li><a href="#">Categories</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">New Listing</a></li>
+            <li><a href="/profile/index.html">Profile</a></li>
+            <li><a href="/newListing/index.html">New Listing</a></li>
           </ul>
         </nav>
-        <div class="hidden lg:flex items-center gap-2">
-          <img src="/media/search.svg" class="size-6" alt="searvh-icon">
-          <input type="search" placeholder="Search..." aria-label="search-input" />
+        <div class="hidden lg:flex items-center gap-2 relative">
+          <img src="/media/search.svg" class="size-6" alt="search-icon">
+          <input type="search" placeholder="Search..." aria-label="search-input" id="searchInput"/>
+          <div class="hidden p-1 absolute top-10 w-full max-h-[30rem] overflow-y-auto z-10 bg-cn-white">
+            <ul id="searchResults"></ul>
+            <div class="hidden alert" id="searchAlertMessage" role="alert"></div>
+          </div>
         </div>
       </div>
       <a class="hidden lg:flex" href="#"><img src="/media/profile.svg" alt="login-icon" class="mr-2">Login</a>

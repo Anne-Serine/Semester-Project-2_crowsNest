@@ -1,6 +1,8 @@
-import { getAllListings } from "./api/posts/allListings.mjs";
-import { listingsContainer } from "./events/posts/allListings.mjs";
+import { getAllListings } from "./api/listings/allListings.mjs";
+import { listingsContainer } from "./events/listings/allListings.mjs";
+import { searchListingsByTitleAndDescription } from "./events/searchListings.mjs";
 
 
 getAllListings();
-listingsContainer()
+listingsContainer();
+searchListingsByTitleAndDescription()

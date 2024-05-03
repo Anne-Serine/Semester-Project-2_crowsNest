@@ -26,9 +26,13 @@
             <li><a href="#">New Listing</a></li>
           </ul>
         </nav>
-        <div class="hidden lg:flex items-center gap-2">
-          <img src="/media/search.svg" class="size-6" alt="searvh-icon">
-          <input type="search" placeholder="Search..." aria-label="search-input" />
+        <div class="hidden lg:flex items-center gap-2 relative">
+          <img src="/media/search.svg" class="size-6" alt="search-icon">
+          <input type="search" placeholder="Search..." aria-label="search-input" id="searchInput"/>
+          <div class="absolute top-10 w-full max-h-[30rem] overflow-y-auto z-10">
+            <ul id="searchResults"></ul>
+            <div class="alert d-none" id="searchAlertMessage" role="alert"></div>
+          </div>
         </div>
       </div>
       <a class="hidden lg:flex" href="#"><img src="/media/profile.svg" alt="login-icon" class="mr-2">Login</a>

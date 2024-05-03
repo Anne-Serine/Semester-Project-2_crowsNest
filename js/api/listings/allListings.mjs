@@ -6,7 +6,7 @@ export async function getAllListings() {
 
     const response = await fetch(postURL);
     const result = response.json();
-
+    
     if(response.ok) {
       return await result
     } else {
@@ -16,6 +16,7 @@ export async function getAllListings() {
       throw new Error(response.status);
     }
   } catch(error) {
-    return error
+    return error;
   }
 }
+
