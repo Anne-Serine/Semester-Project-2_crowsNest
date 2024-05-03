@@ -16,7 +16,7 @@ export async function setRegisterFormListener() {
       registerUser(profile.name, profile.email, profile.password).then((user) => {
         if (user.data) {
           save("registeredUser", true)
-          
+          window.location.href = "/login";
         } else {
           showStatusMessage("error", user, "#registerAlertMessage")
         }

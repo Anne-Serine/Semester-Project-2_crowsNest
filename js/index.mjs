@@ -1,10 +1,11 @@
-import { registerUser } from "./api/auth/register.mjs";
-import { getAllListings } from "./api/listings/allListings.mjs";
+
+// import { createAPIKey } from "./api/constants.mjs";
 import { listingsContainer } from "./events/listings/allListings.mjs";
 import { searchListingsByTitleAndDescription } from "./events/searchListings.mjs";
+import { setRegisterFormListener } from "./events/auth/register.mjs";
 
-
-getAllListings();
 listingsContainer();
 searchListingsByTitleAndDescription();
-registerUser();
+setRegisterFormListener();
+
+// createAPIKey()
