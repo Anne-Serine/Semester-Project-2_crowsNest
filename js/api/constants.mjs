@@ -5,4 +5,4 @@ export const API_ALL_LISTINGS = "/auction/listings";
 export const API_SEARCH = "/auction/listings/search?q=";
 
 // Endpoints that requires authentication
-
+export const API_REGISTER = "/auth/register";
