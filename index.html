@@ -3,10 +3,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./src/css/style.css" rel="stylesheet">
-  <title>Document</title>
+  <meta name="description" content="An auction site. A website where you can add items to be bid on and bid on items other users have put up for auction">
+  <script src="/js/index.mjs" type="module"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="../src/css/style.css" rel="stylesheet">
+  <title>Crow's Nest | Home</title>
 </head>
-<body>
-  <h1 class="text-center">Hello World</h1>
+<body class="bg-cn-green flex flex-col flex-nowrap h-full min-h-screen">
+  <header class="bg-cn-orange">
+    <div class="container flex items-center justify-between">
+      <a href="#">
+        <img src="/media/cn-logo.svg" class="w-12 md:min-w-20" alt="Crow's Nest Logo">
+      </a>
+      <div class="flex gap-32 items-center">
+        <nav class="hidden lg:flex">
+          <ul class="flex uppercase gap-8">
+            <li><a href="#">Categories</a></li>
+            <li><a href="/profile/index.html">Profile</a></li>
+            <li><a href="/newListing/index.html">New Listing</a></li>
+          </ul>
+        </nav>
+        <div class="hidden lg:flex items-center gap-2 relative">
+          <img src="/media/search.svg" class="size-6" alt="search-icon">
+          <input type="search" placeholder="Search..." aria-label="search-input" id="searchInput"/>
+          <div class="hidden p-1 absolute top-10 w-full max-h-[30rem] overflow-y-auto z-10 bg-cn-white">
+            <ul id="searchResults"></ul>
+            <div class="hidden alert" id="searchAlertMessage" role="alert"></div>
+          </div>
+        </div>
+      </div>
+      <a class="hidden lg:flex" href="#"><img src="/media/profile.svg" alt="login-icon" class="mr-2">Login</a>
+      <div class="flex lg:hidden gap-2">
+        <button class="bg-transparent p-2"><img src="/media/search.svg" alt="search-icon" class="size-7"></button>
+        <button class="bg-transparent p-2"><img src="/media/menu.svg" alt="menu-icon" class="size-8"></button>
+      </div>
+    </div>
+  </header>
+
+  <section class=" bg-cn-orange flex p-8 pb-10 rounded-b-3xl">
+    <div class="container flex items-end justify-center gap-10 lg:gap-20">
+      <div>
+        <h1 class="text-2xl lg:text-5xl mb-3 lg:leading-tight">Register now <br> for <span class="text-cn-white">1000</span> free credits!</h1>
+        <div>
+          Don´t miss out, sign up now!
+        </div>
+      </div>
+      <div class="">
+        <img src="/media/3d-cash-money.png" alt="" class="w-24 mx-auto">
+        <button class="min-w-32">Sign up</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="py-3">Categories</h2>
+      <div class="grid-flow-col flex flex-wrap gap-3 mb-5">
+        <div class="max-w-34 sm:max-w-80 border-solid border-cn-orange ">
+          <img src="/media/3d-cash-money.jpg" alt="" class="max-h-34 rounded-t-2xl">
+          <div class="flex justify-center bg-cn-black text-cn-white rounded-bl-md rounded-br-2xl py-2 px-3">
+            <p>CATEGORY</p>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="py-3">Explore new listing</h2>
+      <div class="grid grid-cols-4 gap-10 mb-16" id="allListingsContainer">
+        
+        <!-- <div class="max-w-34 md:max-w-80 border-solid border-cn-orange ">
+          <img src="/media/3d-cash-money.jpg" alt="" class="max-h-34 rounded-t-2xl">
+          <div class="flex justify-between bg-cn-white rounded-bl-md rounded-br-2xl py-2 px-3">
+            <p>JEANS</p>
+            <p>$ 10</p>
+          </div>
+        </div>
+        <div class="max-w-34 md:max-w-80 border-solid border-cn-orange ">
+          <img src="/media/3d-cash-money.jpg" alt="" class="max-h-34 rounded-t-2xl">
+          <div class="flex justify-between bg-cn-white rounded-bl-md rounded-br-2xl py-2 px-3">
+            <p>EXAMPLE</p>
+            <p>$ 10</p>
+          </div>
+        </div> -->
+
+      </div>
+    </div>
+  </section>
+
+
+  
+  
+  <footer class="bg-cn-orange fixed bottom-0 w-full lg:relative mt-auto">
+    <div class="container flex justify-between items-center lg:hidden">
+      <div class="flex items-center gap-5">
+        <a href="#">
+          <img src="/media/home.svg" alt="home-icon">
+        </a>
+        <a href="#">
+          <img src="/media/profile.svg" alt="profile-icon">
+        </a>
+      </div>
+      <button class="min-w-20">Sell</button>
+      <a href="#" class="flex items-center">
+        <img src="/media/piggy-bank.svg" class="flex mr-2" alt="credits-icon">
+        Credit
+      </a>
+    </div>
+    <div class="container hidden lg:flex justify-between">
+      <p>
+        789 Heritage Lane,<br>
+        Auction City Biddington,<br>
+        Auctionland 98765
+      </p>
+      <img src="/media/cn-logo.svg" alt="crow's nest logo" class="size-20">
+      <div class="flex flex-col">
+        <h3>Contact:</h3>
+        <a href="tel:+4712345678">+47 123 45 678</a>
+        <a href="mailto:crows_nest@email.com">crows_nest@email.com</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
