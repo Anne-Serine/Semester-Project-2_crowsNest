@@ -23,7 +23,7 @@
         <img src="/media/cn-logo.svg" class="w-32 absolute lg:min-w-44 lg:mt-0 logo-logged-out" alt="Crow's Nest Logo">
         <div class="pt-5">
           <h1 class="mb-5">Login user</h1>
-          <form id="registerForm" method="post" action="/home/index.html">
+          <form id="loginForm" method="post" action="/profile/index.html">
             <div class="mb-3">
               <label for="email">E-mail</label>
               <input type="email" name="email" id="email" required pattern="^[\w\-.]+@(stud\.)?noroff\.no$" title="The email must be a valid stud.noroff.no email address">
@@ -32,7 +32,7 @@
               <label for="password">Password</label>
               <input type="password" name="password" id="password" required minlength="8" title="The password must be at least 8 characters">
             </div>
-            <div class="alert alert-danger d-none" id="registerAlertMessage" role="alert"></div>
+            <div class="hidden alert" id="loginAlertMessage" role="alert"></div>
             <button type="submit" class="mt-5 btn btn-primary px-4 py-2" id="registerSubmitBtn">Login</button>
           </form>
         </div>
