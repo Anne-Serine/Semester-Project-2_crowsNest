@@ -1,5 +1,6 @@
+
+export const API_KEY = import.meta.env.VITE_API_KEY;
 export const API_BASE = "https://v2.api.noroff.dev";
-export const API_KEY = process.env.API_KEY;
 
 // All listings endpoint doesn´t need authentication
 export const API_ALL_LISTINGS = "/auction/listings";
