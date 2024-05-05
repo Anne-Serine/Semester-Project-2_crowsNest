@@ -1,10 +1,12 @@
 export function logoutUser() {
-  const logoutBtn = document.querySelector("#logoutBtn");
+  const logoutBtn = document.querySelectorAll(".logout-btn");
 
   if(logoutBtn) {
-    logoutBtn.addEventListener("click", () => {
-      localStorage.removeItem("token");
-      localStorage.removeItem("profile");
+    logoutBtn.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("profile");
+      })
     })
   }
 }

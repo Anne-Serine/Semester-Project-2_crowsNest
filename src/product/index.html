@@ -19,46 +19,34 @@
   </head>
 
   <body class="bg-cn-orange flex flex-col flex-nowrap h-full min-h-screen">
-    <header class="bg-cn-orange">
-      <div class="container flex items-center justify-between">
-        <a href="#">
-          <img
-            src="/media/cn-logo.svg"
-            class="w-12 md:min-w-20"
-            alt="Crow's Nest Logo"
-          />
+    <header class=" bg-cn-orange">
+      <div class="container flex items-center justify-between relative">
+        <a href="/">
+          <img src="/media/cn-logo.svg" class="w-12 md:min-w-20" alt="Crow's Nest Logo">
         </a>
         <div class="flex gap-32 items-center">
-          <nav class="hidden lg:flex">
-            <ul class="flex uppercase gap-8">
+          <nav class="z-10 hidden lg:flex absolute lg:relative top-full bg-cn-black text-cn-white lg:text-cn-black text-center rounded-3xl lg:bg-transparent w-full lg:w-auto p-5 right-0" id="nav">
+            <ul class="flex uppercase gap-8 flex-col lg:flex-row">
               <li><a href="#">Categories</a></li>
-              <li><a href="#">Profile</a></li>
-              <li><a href="#">New Listing</a></li>
+              <li class="hidden logged-in"><a href="/profile/">Profile</a></li>
+              <li class="hidden logged-in"><a href="/newListing/">New Listing</a></li>
+              <li class="hidden lg:hidden logged-in"><a class="logout-btn" href="/">Logout</a></li>
             </ul>
           </nav>
           <div class="hidden lg:flex items-center gap-2 relative">
             <img src="/media/search.svg" class="size-6" alt="search-icon">
             <input type="search" placeholder="Search..." aria-label="search-input" id="searchInput"/>
-            <div class="absolute top-10 w-full max-h-[30rem] overflow-y-auto z-10">
+            <div class="hidden p-1 absolute top-10 w-full max-h-[30rem] overflow-y-auto z-10 bg-cn-white">
               <ul id="searchResults"></ul>
-              <div class="alert d-none" id="searchAlertMessage" role="alert"></div>
+              <div class="hidden alert" id="searchAlertMessage" role="alert"></div>
             </div>
           </div>
         </div>
-        <a class="hidden lg:flex" href="#"
-          ><img
-            src="/media/profile.svg"
-            alt="login-icon"
-            class="mr-2"
-          />Login</a
-        >
+        <a class="hidden lg:hidden" href="/login/" id="loginBtn"><img src="/media/profile.svg" alt="user-icon" class="mr-2"><span>Login</span></a>
+        <a class="hidden lg:hidden logout-btn" id="logoutBtn" href="/"><img src="/media/profile.svg" alt="user-icon" class="mr-2"><span>Logout</span></a>
         <div class="flex lg:hidden gap-2">
-          <button class="bg-transparent p-2">
-            <img src="/media/search.svg" alt="search-icon" class="size-7" />
-          </button>
-          <button class="bg-transparent p-2">
-            <img src="/media/menu.svg" alt="menu-icon" class="size-8" />
-          </button>
+          <button class="bg-transparent p-2"><img src="/media/search.svg" alt="search-icon" class="size-7"></button>
+          <button class="bg-transparent p-2" id="navMenuBtn"><img src="/media/menu.svg" alt="menu-icon" class="size-8"></button>
         </div>
       </div>
     </header>
@@ -203,14 +191,14 @@
     <footer class="bg-cn-orange fixed bottom-0 w-full lg:relative mt-auto">
       <div class="container flex justify-between items-center lg:hidden">
         <div class="flex items-center gap-5">
-          <a href="#">
+          <a href="/">
             <img src="/media/home.svg" alt="home-icon" />
           </a>
-          <a href="#">
+          <a href="/profile/">
             <img src="/media/profile.svg" alt="profile-icon" />
           </a>
         </div>
-        <button class="min-w-20">Sell</button>
+        <a href="/newListing/" class="btn px-5 text-sm"><span class="mr-1 text-xl leading-none">&plus;</span>New item</a>
         <a href="#" class="flex items-center">
           <img
             src="/media/piggy-bank.svg"
