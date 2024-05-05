@@ -5,6 +5,7 @@ import { setLoginFormListener } from "./events/auth/login.mjs";
 import { logoutUser } from "./events/auth/logout.mjs";
 import { load } from "./storage/index.mjs";
 import { toggleNav } from "./helpers/toggleNav.mjs";
+import { toggleSearch } from "./helpers/toggleSearch.mjs";
 
 const path = location.pathname;
 const loggedIn = load("token");
@@ -25,6 +26,7 @@ listingsContainer();
 searchListingsByTitleAndDescription();
 logoutUser();
 toggleNav();
+toggleSearch();
 
 const loginBtn = document.querySelector("#loginBtn");
 const logoutBtn = document.querySelector("#logoutBtn");
