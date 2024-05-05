@@ -23,7 +23,7 @@ export async function setLoginFormListener() {
       loginUser(profile.email, profile.password).then((user) => {
         const loggedIn = load("token");
         if(loggedIn) {
-          window.location.href = "/profile"
+          window.location.href = "/profile/"
         } else {
           showStatusMessage("alert-danger", user, "#loginAlertMessage")
         }
