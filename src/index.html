@@ -26,10 +26,10 @@
             <li class="hidden lg:hidden logged-in"><a class="logout-btn" href="/">Logout</a></li>
           </ul>
         </nav>
-        <div class="hidden lg:flex items-center gap-2 relative">
-          <img src="/media/search.svg" class="size-6" alt="search-icon">
-          <input type="search" placeholder="Search..." aria-label="search-input" id="searchInput"/>
-          <div class="hidden p-1 absolute top-10 w-full max-h-[30rem] overflow-y-auto z-10 bg-cn-white">
+        <div class="hidden lg:flex items-center gap-2 relative" id="searchContainer">
+          <img src="/media/search.svg" class="size-6 hidden lg:block" alt="search-icon">
+          <input type="search" placeholder="Search..." class="w-32 sm:w-auto" aria-label="search-input" id="searchInput"/>
+          <div class="hidden p-1 absolute -left-10 lg:left-0 top-10 w-[16rem] lg:w-full max-h-[30rem] overflow-y-auto z-10 bg-cn-white">
             <ul id="searchResults"></ul>
             <div class="hidden alert" id="searchAlertMessage" role="alert"></div>
           </div>
@@ -38,7 +38,7 @@
       <a class="hidden lg:hidden" href="/login/" id="loginBtn"><img src="/media/profile.svg" alt="user-icon" class="mr-2"><span>Login</span></a>
       <a class="hidden lg:hidden logout-btn" id="logoutBtn" href="/"><img src="/media/profile.svg" alt="user-icon" class="mr-2"><span>Logout</span></a>
       <div class="flex lg:hidden gap-2">
-        <button class="bg-transparent p-2"><img src="/media/search.svg" alt="search-icon" class="size-7"></button>
+        <button class="bg-transparent p-2" id="searchBtn"><img src="/media/search.svg" alt="search-icon" class="size-7"></button>
         <button class="bg-transparent p-2" id="navMenuBtn"><img src="/media/menu.svg" alt="menu-icon" class="size-8"></button>
       </div>
     </div>
