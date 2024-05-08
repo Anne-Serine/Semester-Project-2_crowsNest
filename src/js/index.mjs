@@ -7,7 +7,8 @@ import { load } from "./storage/index.mjs";
 import { toggleNav } from "./helpers/toggleNav.mjs";
 import { toggleSearch } from "./helpers/toggleSearch.mjs";
 import { viewSingleListing } from "./events/listings/singleListing.mjs";
-import { viewBiddingHistory } from "./events/biddingHistory.mjs";
+import { viewBiddingHistory } from "./events/bidding/biddingHistory.mjs";
+import { increaseCounter } from "./events/bidding/calculateBid.mjs";
 
 const path = location.pathname;
 const loggedIn = load("token");
@@ -31,6 +32,7 @@ toggleNav();
 toggleSearch();
 viewSingleListing();
 viewBiddingHistory();
+increaseCounter();
 
 const loginBtn = document.querySelector("#loginBtn");
 const logoutBtn = document.querySelector("#logoutBtn");
@@ -41,7 +43,7 @@ if (loggedIn) {
   logoutBtn.classList.add("lg:flex");
   headerNavItems.forEach((li) => {
     li.classList.remove("hidden");
-  })
+  });
 } else {
   loginBtn.classList.remove("lg:hidden");
   loginBtn.classList.add("lg:flex");

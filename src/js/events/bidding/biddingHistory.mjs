@@ -1,5 +1,4 @@
-import { getSingleListing } from "../api/listings/singleListing.mjs";
-
+import { getSingleListing } from "../../api/listings/singleListing.mjs";
 
 export async function viewBiddingHistory() {
   const parameterString = window.location.search;
@@ -9,8 +8,8 @@ export async function viewBiddingHistory() {
   const item = product.data;
   const container = document.querySelector("#biddingHistoryContainer");
 
-  for(let i = item.bids.length - 1; i >= 0; i--) {
-      container.innerHTML += `<div class="bg-cn-white rounded-bl-md rounded-3xl p-3 flex gap-4 w-72 md:w-96 items-center flex-shrink-0">
+  for (let i = item.bids.length - 1; i >= 0; i--) {
+    container.innerHTML += `<div class="bg-cn-white rounded-bl-md rounded-3xl p-3 flex gap-4 w-72 md:w-96 items-center flex-shrink-0">
               <img
                 src="${item.bids[i].bidder.avatar.url}"
                 class="border rounded-full size-16 object-cover"
@@ -23,9 +22,6 @@ export async function viewBiddingHistory() {
                 </div>
                 <p class="text-xl font-bold">$ ${item.bids[i].amount}</p>
               </div>
-        </div>`
+        </div>`;
   }
-
-  
-  
 }
