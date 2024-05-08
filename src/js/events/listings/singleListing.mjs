@@ -25,7 +25,7 @@ export async function viewSingleListing() {
   
   for(let i = 0; i < item.bids.length; i++) {
     if (i === item.bids.length -1) {
-      productCurrentBid.innerHTML = item.bids[i].amount;
+      productCurrentBid.innerHTML = `$ `+ item.bids[i].amount;
     }
   }
 
