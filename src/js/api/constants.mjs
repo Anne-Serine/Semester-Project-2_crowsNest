@@ -5,6 +5,8 @@ export const API_BASE = "https://v2.api.noroff.dev";
 // All listings endpoint doesn´t need authentication
 export const API_ALL_LISTINGS = "/auction/listings";
 export const API_SEARCH = "/auction/listings/search?q=";
+export const API_SINGLE_LISTING_URL = "/auction/listings"; //+ /&{id}
+export const API_SINGLE_LISTING_PARAMS = "?_seller=true&_bids=true";
 
 // Endpoints that requires authentication
 export const API_REGISTER = "/auth/register";
@@ -13,7 +15,7 @@ export const API_LOGIN = "/auth/login";
 
 
 
-// // Create API-key
+// Create API-key
 // export const API_KEY_URL = "/auth/create-api-key";
 
 

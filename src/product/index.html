@@ -53,76 +53,58 @@
 
     <section class="bg-cn-green">
       <div class="lg:container flex flex-wrap">
-        <div class="lg:max-w-[50rem]">
-          <img src="/media/3d-cash-money.jpg" class="rounded-b-3xl" alt="" />
-          <div class="grid py-3 gap-3 grid-cols-4 px-3 lg:px-0">
-            <img
-              src="/media/3d-cash-money.jpg"
-              class="rounded-xl md:rounded-3xl"
-              alt=""
-            />
-            <img
-              src="/media/3d-cash-money.jpg"
-              class="rounded-xl md:rounded-3xl"
-              alt=""
-            />
-            <img
-              src="/media/3d-cash-money.jpg"
-              class="rounded-xl md:rounded-3xl"
-              alt=""
-            />
-          </div>
+        <div class="lg:max-w-[50rem] object-cover" >
+          <div class="rounded-b-3xl max-h-[33rem] w-full lg:max-w-[50rem] overflow-hidden object-cover" id="productImage1"></div>
+          <div class="grid py-3 gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-3 lg:px-0" id="productImage2"></div>
         </div>
         <div class="p-3 xl:p-20 max-w-[40rem]">
           <p class="pb-5">
-            Created by: <span class="font-semibold">Sofie Kloss</span>
+            Created by: <span class="font-semibold" id="productSeller"></span>
+            <h1 class="text-2xl mt-10 mb-4" id="productTitle">Jeans and Sweather</h1>
+            <p id="productDescription"></p>
           </p>
-          <p class="text-3xl font-semibold my-3">
-            <span class="text-lg mr-5">Current bid:</span>$ 30.00
+          <p class="text-xl font-semibold my-3">
+            Current amount:
+            <span class="ps-3 text-3xl mr-5" id="productCurrentBid"></span>
           </p>
-          <p>Ends on: 20.04.2024 12.00 pm</p>
-          <h1 class="text-2xl mt-10 mb-4">Jeans and Sweather</h1>
-          <p>
-            Forem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-            vulputate libero et velit interdum, ac aliquet odio mattis. Class
-            aptent taciti sociosqu ad litora torquent per conubia nostra, per
-            inceptos himenaeos. Curabitur tempus urna at turpis condimentum
-            lobortis. Ut commodo efficitur neque.
+          <p class="font-semibold">
+            Ends at: <span id="productEndsAt"></span>
           </p>
-          <div
-            class="flex justify-between items-center p-1 bg-cn-white rounded-3xl max-w-52 mx-auto mt-20"
-          >
-            <button
-              class="bg-cn-orange text-cn-black p-2 rounded-full size-10 text-2xl"
-            >
-              &minus;
-            </button>
-            <span>$ 35.00</span>
-            <button
-              class="bg-cn-orange text-cn-black p-2 rounded-full size-10 text-2xl"
-            >
-              &plus;
-            </button>
+          </p>
+
+          <div class="flex justify-between items-center p-1 bg-cn-white rounded-3xl max-w-52 mx-auto mt-20">
+            <button class="bg-cn-orange text-cn-black p-2 rounded-full size-10 text-2xl" id="decreaseBtn" data-change-bid="decrease">&minus;</button>
+            <input type="text" inputmode="numeric" id="biddingAmount" class="w-16 text-center" />
+            <button class="bg-cn-orange text-cn-black p-2 rounded-full size-10 text-2xl" id="increaseBtn" data-change-bid="increase">&plus;</button>
           </div>
-          <button class="mt-10 mx-auto">Place bid</button>
+          <div id="errorMessage"></div>
+
+          <!-- <div class="flex justify-between items-center p-1 bg-cn-white rounded-3xl max-w-52 mx-auto mt-20">
+            <button class="bg-cn-orange text-cn-black p-2 rounded-full size-10 text-2xl" id="decreaseBtn">&minus;</button>
+            <input type="text" inputmode="numeric" id="biddingAmount" class="w-16 text-center" />
+            <button class="bg-cn-orange text-cn-black p-2 rounded-full size-10 text-2xl" id="increaseBtn">&plus;</button>
+          </div> -->
+
+          <!-- <div class="flex justify-between items-center p-1 bg-cn-white rounded-3xl max-w-52 mx-auto mt-20">
+            <button class="bg-cn-orange text-cn-black p-2 rounded-full size-10 text-2xl" id="minusBtn">&minus;</button>
+            <span id="biddingAmount"></span>
+            <button class="bg-cn-orange text-cn-black p-2 rounded-full size-10 text-2xl" id="plusBtn">&plus;</button>
+          </div> -->
+          <button class="mt-10 mx-auto" id="placeBidBtn">Place bid</button>
         </div>
       </div>
     </section>
     <section class="bg-cn-light-grey pb-20">
       <div class="container overflow-hidden">
         <h2 class="mt-3 mb-5">Bidding history</h2>
-        <div class="flex gap-3 overflow-x-auto pb-5">
-          <div
-            class="bg-cn-white rounded-bl-md rounded-3xl p-3 flex gap-4 w-72 md:w-96 items-center flex-shrink-0"
-          >
+        <div class="flex gap-3 overflow-x-auto pb-5" id="biddingHistoryContainer">
+          <!-- <div class="bg-cn-white rounded-bl-md rounded-3xl p-3 flex gap-4 w-72 md:w-96 items-center flex-shrink-0">
             <img
               src="/media/3d-cash-money.jpg"
               class="border rounded-full size-16 object-cover"
               alt=""
             />
-            <div
-              class="flex flex-col md:flex-row w-full md:justify-between md:items-center"
-            >
+            <div class="flex flex-col md:flex-row w-full md:justify-between md:items-center">
               <div>
                 <h3 class="leading-none">Name Nameson</h3>
                 <p class="text-sm">8. March 2024</p>
@@ -130,17 +112,13 @@
               <p class="text-xl font-bold">$ 30.00</p>
             </div>
           </div>
-          <div
-            class="bg-cn-white rounded-bl-md rounded-3xl p-3 flex gap-4 w-72 md:w-96 items-center flex-shrink-0"
-          >
+          <div class="bg-cn-white rounded-bl-md rounded-3xl p-3 flex gap-4 w-72 md:w-96 items-center flex-shrink-0">
             <img
               src="/media/3d-cash-money.jpg"
               class="border rounded-full size-16 object-cover"
               alt=""
             />
-            <div
-              class="flex flex-col md:flex-row w-full md:justify-between md:items-center"
-            >
+            <div class="flex flex-col md:flex-row w-full md:justify-between md:items-center">
               <div>
                 <h3 class="leading-none">Name Nameson</h3>
                 <p class="text-sm">8. March 2024</p>
@@ -148,17 +126,13 @@
               <p class="text-xl font-bold">$ 30.00</p>
             </div>
           </div>
-          <div
-            class="bg-cn-white rounded-bl-md rounded-3xl p-3 flex gap-4 w-72 md:w-96 items-center flex-shrink-0"
-          >
+          <div class="bg-cn-white rounded-bl-md rounded-3xl p-3 flex gap-4 w-72 md:w-96 items-center flex-shrink-0">
             <img
               src="/media/3d-cash-money.jpg"
               class="border rounded-full size-16 object-cover"
               alt=""
             />
-            <div
-              class="flex flex-col md:flex-row w-full md:justify-between md:items-center"
-            >
+            <div class="flex flex-col md:flex-row w-full md:justify-between md:items-center">
               <div>
                 <h3 class="leading-none">Name Nameson</h3>
                 <p class="text-sm">8. March 2024</p>
@@ -166,24 +140,20 @@
               <p class="text-xl font-bold">$ 30.00</p>
             </div>
           </div>
-          <div
-            class="bg-cn-white rounded-bl-md rounded-3xl p-3 flex gap-4 w-72 md:w-96 items-center flex-shrink-0"
-          >
+          <div class="bg-cn-white rounded-bl-md rounded-3xl p-3 flex gap-4 w-72 md:w-96 items-center flex-shrink-0">
             <img
               src="/media/3d-cash-money.jpg"
               class="border rounded-full size-16 object-cover"
               alt=""
             />
-            <div
-              class="flex flex-col md:flex-row w-full md:justify-between md:items-center"
-            >
+            <div class="flex flex-col md:flex-row w-full md:justify-between md:items-center">
               <div>
                 <h3 class="leading-none">Name Nameson</h3>
                 <p class="text-sm">8. March 2024</p>
               </div>
               <p class="text-xl font-bold">$ 30.00</p>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
@@ -192,10 +162,10 @@
       <div class="container flex justify-between items-center lg:hidden">
         <div class="flex items-center gap-5">
           <a href="/">
-            <img src="/media/home.svg" alt="home-icon" />
+            <img src="/media/home.svg" alt="home-icon">
           </a>
           <a href="/profile/">
-            <img src="/media/profile.svg" alt="profile-icon" />
+            <img src="/media/profile.svg" alt="profile-icon">
           </a>
         </div>
         <a href="/newListing/" class="btn px-5 text-sm"><span class="mr-1 text-xl leading-none">&plus;</span>New item</a>
@@ -204,7 +174,7 @@
             src="/media/piggy-bank.svg"
             class="flex mr-2"
             alt="credits-icon"
-          />
+          >
           Credit
         </a>
       </div>
