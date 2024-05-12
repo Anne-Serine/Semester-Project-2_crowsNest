@@ -74,23 +74,11 @@
 
           <div class="flex justify-between items-center p-1 bg-cn-white rounded-3xl max-w-52 mx-auto mt-20">
             <button class="bg-cn-orange text-cn-black p-2 rounded-full size-10 text-2xl" id="decreaseBtn" data-change-bid="decrease">&minus;</button>
-            <input type="text" inputmode="numeric" id="biddingAmount" class="w-16 text-center" />
+            <input type="number" id="biddingAmount" class="number-input w-16 text-center" />
             <button class="bg-cn-orange text-cn-black p-2 rounded-full size-10 text-2xl" id="increaseBtn" data-change-bid="increase">&plus;</button>
           </div>
-          <div id="errorMessage"></div>
-
-          <!-- <div class="flex justify-between items-center p-1 bg-cn-white rounded-3xl max-w-52 mx-auto mt-20">
-            <button class="bg-cn-orange text-cn-black p-2 rounded-full size-10 text-2xl" id="decreaseBtn">&minus;</button>
-            <input type="text" inputmode="numeric" id="biddingAmount" class="w-16 text-center" />
-            <button class="bg-cn-orange text-cn-black p-2 rounded-full size-10 text-2xl" id="increaseBtn">&plus;</button>
-          </div> -->
-
-          <!-- <div class="flex justify-between items-center p-1 bg-cn-white rounded-3xl max-w-52 mx-auto mt-20">
-            <button class="bg-cn-orange text-cn-black p-2 rounded-full size-10 text-2xl" id="minusBtn">&minus;</button>
-            <span id="biddingAmount"></span>
-            <button class="bg-cn-orange text-cn-black p-2 rounded-full size-10 text-2xl" id="plusBtn">&plus;</button>
-          </div> -->
-          <button class="mt-10 mx-auto" id="placeBidBtn">Place bid</button>
+          <div class="text-center mt-2 text-red-500" id="errorMessage"></div>
+          <button class="mt-5 mx-auto" id="placeBidBtn">Place bid</button>
         </div>
       </div>
     </section>

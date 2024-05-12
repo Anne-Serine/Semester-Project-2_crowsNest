@@ -1,4 +1,6 @@
 import { getSingleListing } from "../../api/listings/singleListing.mjs";
+import { viewBiddingHistory } from "../bidding/biddingHistory.mjs";
+import { setBiddingAmount } from "../bidding/calculateBid.mjs";
 
 
 export async function viewSingleListing() {
@@ -38,5 +40,6 @@ export async function viewSingleListing() {
   const productDescription = document.querySelector("#productDescription");
   productDescription.innerHTML = item.description;
 
-
+  viewBiddingHistory(item);
+  setBiddingAmount(item);
 }
