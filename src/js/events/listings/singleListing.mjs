@@ -1,5 +1,4 @@
 import { getSingleListing } from "../../api/listings/singleListing.mjs";
-import { calculateMinimumBid } from "../bidding/calculateBid.mjs";
 
 
 export async function viewSingleListing() {
@@ -9,7 +8,6 @@ export async function viewSingleListing() {
   const product = await getSingleListing(id);
   const item = product.data
   const productCurrentBid = document.querySelector("#productCurrentBid");
-  const biddingAmount = document.querySelector("#biddingAmount");
 
   const productImage1 = document.querySelector("#productImage1");
   const imageElement = document.createElement("img");
@@ -31,12 +29,6 @@ export async function viewSingleListing() {
     }
   }
 
-  for(let i = 0; i < item.bids.length; i++) {
-    if (i === item.bids.length -1) {
-      biddingAmount.innerHTML = `$ `+ calculateMinimumBid(item);
-    }
-  }
-
   const productEndsAt = document.querySelector("#productEndsAt");
   productEndsAt.innerHTML = item.endsAt;
   
@@ -48,12 +40,3 @@ export async function viewSingleListing() {
 
 
 }
-
-
-// if(singleListingProductContainer) {
-//   const singleListingProductContainer = document.querySelector("#singleListingProductContainer");
-//   singleListingProductContainer.innerHTML = `${product.title}`;
-// }
-// viewSingleListingProduct.addEventListener("click", () => {
-//   console.log(singleListingProductContainer)
-// })

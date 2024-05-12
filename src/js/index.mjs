@@ -8,7 +8,7 @@ import { toggleNav } from "./helpers/toggleNav.mjs";
 import { toggleSearch } from "./helpers/toggleSearch.mjs";
 import { viewSingleListing } from "./events/listings/singleListing.mjs";
 import { viewBiddingHistory } from "./events/bidding/biddingHistory.mjs";
-import { increaseCounter } from "./events/bidding/calculateBid.mjs";
+import { setBiddingAmount } from "./events/bidding/calculateBid.mjs";
 
 const path = location.pathname;
 const loggedIn = load("token");
@@ -32,7 +32,7 @@ toggleNav();
 toggleSearch();
 viewSingleListing();
 viewBiddingHistory();
-increaseCounter();
+setBiddingAmount();
 
 const loginBtn = document.querySelector("#loginBtn");
 const logoutBtn = document.querySelector("#logoutBtn");
