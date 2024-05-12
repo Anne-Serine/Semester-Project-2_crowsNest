@@ -1,8 +1,5 @@
-import { getSingleListing } from "../../api/listings/singleListing.mjs";
-
-
  // Get the highest bid + 1 from product.data
- export function minPossibleBid(product) {
+ function minPossibleBid(product) {
   if(product.bids.length === 0) {
     return 1;
   } else {
@@ -10,29 +7,25 @@ import { getSingleListing } from "../../api/listings/singleListing.mjs";
   }
 }
 
-const parameterString = window.location.search;
-const searchParameters = new URLSearchParams(parameterString);
-const id = searchParameters.get("listingId");
-const product = await getSingleListing(id);
-const biddingAmount = document.querySelector("#biddingAmount");
-const item = product.data
-const changeBidAmountBtns = document.querySelectorAll("[data-change-bid]")
-const placeBidBtn = document.querySelector("#placeBidBtn")
-const errorMessage = document.querySelector("#errorMessage")
 
 // Function to increase/decrease counter and update display
-export async function setBiddingAmount() {
+export async function setBiddingAmount(item) {
+  const biddingAmount = document.querySelector("#biddingAmount");
+  const changeBidAmountBtns = document.querySelectorAll("[data-change-bid]")
+  const placeBidBtn = document.querySelector("#placeBidBtn")
+  const errorMessage = document.querySelector("#errorMessage")
 
   // Set initial input value and currentBid
-  biddingAmount.value = minPossibleBid(item)
-  let currentBid = minPossibleBid(item)
+  biddingAmount.value = minPossibleBid(item);
+  biddingAmount.setAttribute("min", biddingAmount.value);
+  let currentBid = biddingAmount.value;
 
   // Validate and change value in input with decrease/increase buttons
   changeBidAmountBtns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       // First a check
-      if(isNaN(currentBid) || currentBid < minPossibleBid(item)) {
-        return
+      if(currentBid < minPossibleBid(item)) {
+        currentBid = minPossibleBid(item)
       } else if(currentBid > minPossibleBid(item) && e.target.dataset.changeBid === "decrease") {
         currentBid--
       } else if (currentBid >= minPossibleBid(item) && e.target.dataset.changeBid === "increase") {
@@ -49,10 +42,10 @@ export async function setBiddingAmount() {
   // Validate and set the current bid when typing something in input
   biddingAmount.addEventListener("input", () => {
     errorMessage.innerHTML = ''
-    currentBid = +biddingAmount.value
+    currentBid = biddingAmount.value
 
     // Do some checks
-    if(isNaN(currentBid) || currentBid < minPossibleBid(item)) {
+    if(currentBid < minPossibleBid(item)) {
       // Show error message if not a number
       placeBidBtn.disabled = true
       errorMessage.innerHTML = "Not a valid bid amount"

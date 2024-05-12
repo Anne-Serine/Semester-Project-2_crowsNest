@@ -1,11 +1,4 @@
-import { getSingleListing } from "../../api/listings/singleListing.mjs";
-
-export async function viewBiddingHistory() {
-  const parameterString = window.location.search;
-  const searchParameters = new URLSearchParams(parameterString);
-  const id = searchParameters.get("listingId");
-  const product = await getSingleListing(id);
-  const item = product.data;
+export async function viewBiddingHistory(item) {
   const container = document.querySelector("#biddingHistoryContainer");
 
   for (let i = item.bids.length - 1; i >= 0; i--) {
