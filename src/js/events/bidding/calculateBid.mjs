@@ -10,18 +10,18 @@ import { getSingleListing } from "../../api/listings/singleListing.mjs";
   }
 }
 
+const parameterString = window.location.search;
+const searchParameters = new URLSearchParams(parameterString);
+const id = searchParameters.get("listingId");
+const product = await getSingleListing(id);
+const biddingAmount = document.querySelector("#biddingAmount");
+const item = product.data
+const changeBidAmountBtns = document.querySelectorAll("[data-change-bid]")
+const placeBidBtn = document.querySelector("#placeBidBtn")
+const errorMessage = document.querySelector("#errorMessage")
 
 // Function to increase/decrease counter and update display
 export async function setBiddingAmount() {
-  const parameterString = window.location.search;
-  const searchParameters = new URLSearchParams(parameterString);
-  const id = searchParameters.get("listingId");
-  const product = await getSingleListing(id);
-  const biddingAmount = document.querySelector("#biddingAmount");
-  const item = product.data
-  const changeBidAmountBtns = document.querySelectorAll("[data-change-bid]")
-  const placeBidBtn = document.querySelector("#placeBidBtn")
-  const errorMessage = document.querySelector("#errorMessage")
 
   // Set initial input value and currentBid
   biddingAmount.value = minPossibleBid(item)
