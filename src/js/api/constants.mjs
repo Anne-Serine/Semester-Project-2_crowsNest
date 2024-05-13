@@ -11,8 +11,10 @@ export const API_SINGLE_LISTING_PARAMS = "?_seller=true&_bids=true";
 // Endpoints that requires authentication
 export const API_REGISTER = "/auth/register";
 export const API_LOGIN = "/auth/login";
+export const API_SINGLE_PROFILE = "/auction/profiles"; //+ /&{name}
+export const API_SINGLE_PROFILE_PARAMS = "?_listings=true&_wins=true";
 
-
+console.log(API_KEY)
 
 
 // Create API-key
