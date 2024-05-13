@@ -7,6 +7,8 @@ import { load } from "./storage/index.mjs";
 import { toggleNav } from "./helpers/toggleNav.mjs";
 import { toggleSearch } from "./helpers/toggleSearch.mjs";
 import { viewSingleListing } from "./events/listings/singleListing.mjs";
+import { viewSingleProfile } from "./events/profile/viewSingleProfile.mjs";
+
 
 const path = location.pathname;
 const loggedIn = load("token");
@@ -29,6 +31,9 @@ logoutUser();
 toggleNav();
 toggleSearch();
 viewSingleListing();
+
+viewSingleProfile();
+
 
 const loginBtn = document.querySelector("#loginBtn");
 const logoutBtn = document.querySelector("#logoutBtn");

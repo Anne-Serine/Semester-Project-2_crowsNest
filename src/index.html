@@ -17,18 +17,24 @@
       <a href="/">
         <img src="/media/cn-logo.svg" class="w-12 md:min-w-20" alt="Crow's Nest Logo">
       </a>
-      <div class="flex gap-32 items-center">
+      <div class="flex gap-8 items-center">
         <nav class="z-10 hidden lg:flex absolute lg:relative top-full bg-cn-black text-cn-white lg:text-cn-black text-center rounded-3xl lg:bg-transparent w-full lg:w-auto p-5 right-0" id="nav">
           <ul class="flex uppercase gap-8 flex-col lg:flex-row">
             <li><a href="#">Categories</a></li>
             <li class="hidden logged-in"><a href="/profile/">Profile</a></li>
             <li class="hidden logged-in"><a href="/newListing/">New Listing</a></li>
             <li class="hidden lg:hidden logged-in"><a class="logout-btn" href="/">Logout</a></li>
+            <li class="hidden logged-in bg-cn-white p-1 rounded-sm lg:bg-transparent lg:p-0">
+              <div class="flex items-center justify-center">
+                <img src="/media/piggy-bank.svg" class="flex mr-2" alt="credits-icon">
+                <span class="credit text-cn-black"></span>
+              </div>
+            </li>
           </ul>
         </nav>
         <div class="hidden lg:flex items-center gap-2 relative" id="searchContainer">
           <img src="/media/search.svg" class="size-6 hidden lg:block" alt="search-icon">
-          <input type="search" placeholder="Search..." class="w-32 sm:w-auto" aria-label="search-input" id="searchInput"/>
+          <input type="search" placeholder="Search..." class="max-w-32 sm:max-w-52 w-full" aria-label="search-input" id="searchInput"/>
           <div class="hidden p-1 absolute -left-10 lg:left-0 top-10 w-[16rem] lg:w-full max-h-[30rem] overflow-y-auto z-10 bg-cn-white">
             <ul id="searchResults"></ul>
             <div class="hidden alert" id="searchAlertMessage" role="alert"></div>
@@ -107,10 +113,12 @@
         </a>
       </div>
       <a href="/newListing/" class="btn px-5 text-sm"><span class="mr-1 text-xl leading-none">&plus;</span>New item</a>
-      <a href="#" class="flex items-center">
-        <img src="/media/piggy-bank.svg" class="flex mr-2" alt="credits-icon">
-        Credit
-      </a>
+      <div class="hidden logged-in">
+        <div class="flex items-center">
+          <img src="/media/piggy-bank.svg" class="flex mr-2" alt="credits-icon">
+          <span class="credit"></span>
+        </div>
+      </div>
     </div>
     <div class="container hidden lg:flex justify-between">
       <p>

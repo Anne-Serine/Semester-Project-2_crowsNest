@@ -93,3 +93,7 @@ label {
 button:disabled {
   opacity: 50%;
 }
+
+dialog::backdrop {
+  @apply bg-cn-black opacity-65;
+}
