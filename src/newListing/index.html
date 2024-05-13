@@ -25,10 +25,11 @@
             <li class="hidden logged-in"><a href="/profile/">Profile</a></li>
             <li class="hidden logged-in"><a href="/newListing/">New Listing</a></li>
             <li class="hidden lg:hidden logged-in"><a class="logout-btn" href="/">Logout</a></li>
-            <li class="flex items-center bg-cn-white p-1 rounded-sm lg:bg-transparent lg:p-0 justify-center">
-              <img src="/media/piggy-bank.svg" class="flex mr-2" alt="credits-icon">
-              <span class="text-cn-black me-2 lowercase">Credits: </span>
-              <span class="credit text-cn-black"></span>
+            <li class="hidden logged-in bg-cn-white p-1 rounded-sm lg:bg-transparent lg:p-0">
+              <div class="flex items-center justify-center">
+                <img src="/media/piggy-bank.svg" class="flex mr-2" alt="credits-icon">
+                <span class="credit text-cn-black"></span>
+              </div>
             </li>
           </ul>
         </nav>
@@ -115,9 +116,11 @@
         </a>
       </div>
       <a href="/newListing/" class="btn px-5 text-sm"><span class="mr-1 text-xl leading-none">&plus;</span>New item</a>
-      <div class="flex items-center">
-        <img src="/media/piggy-bank.svg" class="flex mr-2" alt="credits-icon">
-        <span class="credit"></span>
+      <div class="hidden logged-in">
+        <div class="flex items-center">
+          <img src="/media/piggy-bank.svg" class="flex mr-2" alt="credits-icon">
+          <span class="credit"></span>
+        </div>
       </div>
     </div>
     <div class="container hidden lg:flex justify-between">
