@@ -9,7 +9,6 @@ export function searchListingsByTitleAndDescription() {
 
     searchInput.addEventListener("keyup", async (e) => {
       const value = e.target.value;
-      console.log(value)
       searchResults.innerHTML = "";
       if (value.length > 0) {
         searchResults.parentElement.classList.remove("hidden");

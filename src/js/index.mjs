@@ -9,6 +9,7 @@ import { toggleSearch } from "./helpers/toggleSearch.mjs";
 import { viewSingleListing } from "./events/listings/singleListing.mjs";
 import { viewSingleProfile } from "./events/profile/viewSingleProfile.mjs";
 
+
 const path = location.pathname;
 const loggedIn = load("token");
 
@@ -32,6 +33,7 @@ toggleSearch();
 viewSingleListing();
 
 viewSingleProfile();
+
 
 const loginBtn = document.querySelector("#loginBtn");
 const logoutBtn = document.querySelector("#logoutBtn");

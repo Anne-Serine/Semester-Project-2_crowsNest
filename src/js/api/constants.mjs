@@ -14,7 +14,6 @@ export const API_LOGIN = "/auth/login";
 export const API_SINGLE_PROFILE = "/auction/profiles"; //+ /&{name}
 export const API_SINGLE_PROFILE_PARAMS = "?_listings=true&_wins=true";
 
-console.log(API_KEY)
 
 
 // Create API-key

@@ -6,7 +6,6 @@ export async function listingsContainer() {
 
   if (allListingsContainer) {
     const data = await getAllListings();
-    console.log(data)
     data.data.forEach(element => {
       allListingsContainer.innerHTML += createListingCard(element);
     });
