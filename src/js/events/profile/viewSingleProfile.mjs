@@ -21,7 +21,7 @@ export async function viewSingleProfile() {
       userAvatar.setAttribute("alt", user.avatar.alt);
     }
     const bioText = document.querySelector("#bioText");
-    if (user.bio.length > 0) {
+    if (bioText && user.bio.length > 0) {
       bioText.innerHTML = user.bio;
     }
 

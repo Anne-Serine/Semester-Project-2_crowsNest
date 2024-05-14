@@ -54,19 +54,19 @@
     <div class="flex">
       <div class="sm:container md:max-w-[40rem] lg:max-w-[60rem] bg-cn-green rounded-t-3xl sm:-mt-52">
          
-        <form class="mx-auto flex flex-col lg:flex-row mb-20" id="" method="post" action="">
+        <form class="mx-auto flex flex-col lg:flex-row mb-20" id="createNewListingForm" method="post" action="">
           <div class="lg:max-w-[50rem] sm:mx-5">
             <img src="/media/placeholder.jpg" data-image="image1" class="rounded-b-3xl " alt="">
-            <input type="text" data-image-url="image1">
+            <input type="text" name="listingImage1" data-image-url="image1">
             <div class="grid py-3 gap-3 grid-cols-4 px-3 lg:px-0">
               <img src="/media/placeholder.jpg" data-image="image2" class="rounded-xl md:rounded-3xl" alt="">
-              <input type="text" data-image-url="image2">
+              <input type="text" name="listingImage2" data-image-url="image2">
               <img src="/media/placeholder.jpg" data-image="image3" class="rounded-xl md:rounded-3xl" alt="">
-              <input type="text" data-image-url="image3">
+              <input type="text" name="listingImage3" data-image-url="image3">
               <img src="/media/placeholder.jpg" data-image="image4" class="rounded-xl md:rounded-3xl" alt="">
-              <input type="text" data-image-url="image4">
+              <input type="text" name="listingImage4" data-image-url="image4">
               <img src="/media/placeholder.jpg" data-image="image5" class="rounded-xl md:rounded-3xl" alt="">
-              <input type="text" data-image-url="image4">
+              <input type="text" name="listingImage5" data-image-url="image5">
             </div>
           </div>
           
@@ -82,26 +82,27 @@
             
             <div class="flex flex-col gap-3">
               <h1 class="pt-10 pb-4">New list item</h1>
-                <div class="">
-                  <label class="px-4" for="name">Title</label>
-                  <input class="border border-cn-black" type="text" name="title" id="title" data-form-input="createPostInputs" required title="Please enter a title for your post" placeholder="Enter a title for your post">
-                </div>
-                <div class="">
-                  <label class="px-4" for="endsAt">Deadline date</label>
-                  <input class="border border-cn-black" type="text" name="endsAt" id="endsAt" data-form-input="createPostInputs" required title="Enter a deadline date for your post" placeholder="E.g '' 19.05.2024 ''">
-                </div>
-                <div class="">
-                  <label class="px-4" for="description">Description</label>
-                  <textarea class="border border-cn-black" name="description" id="description" data-form-input="createPostInputs" placeholder="Write here..." maxLength="280"></textarea>
-                  <p class="message-maxlength"></p>
-                </div>
-                <!-- <div class="alert d-none" id="createPostAlertMessage" role="alert"></div> -->
-                <button type="submit" class="max-w-32 my-4" id="registerSubmitBtn">Upload</button>
+              <div class="">
+                <label class="px-4" for="name">Title</label>
+                <input class="border border-cn-black" type="text" name="title" id="title" data-form-input="createListingInputs" required title="Please enter a title for your post" placeholder="Enter a title for your post">
               </div>
-              
+              <div class="">
+                <label class="px-4" for="endsAt">Deadline date</label>
+                <input class="border border-cn-black" type="date" name="endsAt" id="endsAt" data-form-input="createListingInputs" required title="Enter a deadline date for your post" placeholder="E.g '' 19.05.2024 ''">
+              </div>
+              <div class="">
+                <label class="px-4" for="description">Description</label>
+                <textarea class="border border-cn-black" name="description" id="description" data-form-input="createListingInputs" placeholder="Write here..." maxLength="280"></textarea>
+                <p class="message-maxlength"></p>
+              </div>
+              <!-- <div class="alert d-none" id="createPostAlertMessage" role="alert"></div> -->
+              <button type="submit" class="max-w-32 my-4" id="registerSubmitBtn">Upload</button>
             </div>
-          </form>
-        </div>
+              
+          </div>
+        </form>
+      </div>
+    </div>
   </section>
   
   
