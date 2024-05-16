@@ -1,4 +1,6 @@
+import { getProfileListings } from "../../api/listings/getProfileListings.mjs";
 import { getSingleProfile } from "../../api/profile/singleProfile.mjs";
+import { createListingCard } from "../../templates/listingCard.mjs";
 import { updateSingleProfile } from "./updateSingleProfile.mjs";
 
 
@@ -26,6 +28,16 @@ export async function viewSingleProfile() {
     }
 
     updateSingleProfile(userAvatar, user.avatar.url);
+
+    const profileListingsContainer = document.querySelector("#profileListingsContainer");
+
+    if (profileListingsContainer) {
+      const data = await getProfileListings(user.name);
+      console.log(data)
+      data.data.forEach(element => {
+        profileListingsContainer.innerHTML += createListingCard(element);
+      });
+    }
   }
 }
 

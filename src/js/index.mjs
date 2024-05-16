@@ -36,9 +36,6 @@ viewSingleListing();
 viewSingleProfile();
 setCreateNewListingEvent()
 
-// console.log(createNewListing());
-// console.log(setCreateNewListingEvent().then());
-
 
 const loginBtn = document.querySelector("#loginBtn");
 const logoutBtn = document.querySelector("#logoutBtn");
