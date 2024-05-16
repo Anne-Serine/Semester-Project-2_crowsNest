@@ -56,43 +56,74 @@
          
         <form class="mx-auto flex flex-col lg:flex-row mb-20" id="createNewListingForm" method="post" action="">
           <div class="lg:max-w-[50rem] sm:mx-5">
-            <img src="/media/placeholder.jpg" data-image="image1" class="rounded-b-3xl " alt="">
-            <input type="text" name="listingImage1" data-image-url="image1">
+            <div class="relative">
+              <img src="/media/placeholder.jpg" data-image="image1" class="rounded-b-3xl " alt="">
+              <button type="button" data-image="image1" class="absolute bottom-3 right-3 bg-cn-white rounded-full p-2">
+                <img src="/media/camera.svg" class="pointer-events-none" alt="">
+              </button>
+              <input type="hidden" name="listingImage1" data-image-url="image1">
+            </div>
             <div class="grid py-3 gap-3 grid-cols-4 px-3 lg:px-0">
-              <img src="/media/placeholder.jpg" data-image="image2" class="rounded-xl md:rounded-3xl" alt="">
-              <input type="text" name="listingImage2" data-image-url="image2">
-              <img src="/media/placeholder.jpg" data-image="image3" class="rounded-xl md:rounded-3xl" alt="">
-              <input type="text" name="listingImage3" data-image-url="image3">
-              <img src="/media/placeholder.jpg" data-image="image4" class="rounded-xl md:rounded-3xl" alt="">
-              <input type="text" name="listingImage4" data-image-url="image4">
-              <img src="/media/placeholder.jpg" data-image="image5" class="rounded-xl md:rounded-3xl" alt="">
-              <input type="text" name="listingImage5" data-image-url="image5">
+              <div class="relative max-h-[7rem] overflow-hidden rounded-xl md:rounded-3xl flex items-center">
+                <img src="/media/placeholder.jpg" data-image="image2" class="object-cover" alt="">
+                <button type="button" data-image="image2" class="absolute bottom-3 right-3 bg-cn-white rounded-full p-2">
+                  <img src="/media/camera.svg" class="pointer-events-none" alt="">
+                </button>
+                <input type="hidden" name="listingImage2" data-image-url="image2">
+              </div>
+              <div class="relative max-h-[7rem] overflow-hidden rounded-xl md:rounded-3xl flex items-center">
+                <img src="/media/placeholder.jpg" data-image="image3" class="object-cover" alt="">
+                <button type="button" data-image="image3" class="absolute bottom-3 right-3 bg-cn-white rounded-full p-2">
+                  <img src="/media/camera.svg" class="pointer-events-none" alt="">
+                </button>
+                <input type="hidden" name="listingImage3" data-image-url="image3">
+              </div>
+              <div class="relative max-h-[7rem] overflow-hidden rounded-xl md:rounded-3xl flex items-center">
+                <img src="/media/placeholder.jpg" data-image="image4" class="object-cover" alt="">
+                <button type="button" data-image="image4" class="absolute bottom-3 right-3 bg-cn-white rounded-full p-2">
+                  <img src="/media/camera.svg" class="pointer-events-none" alt="">
+                </button>
+                <input type="hidden" name="listingImage4" data-image-url="image4">
+              </div>
+              <div class="relative max-h-[7rem] overflow-hidden rounded-xl md:rounded-3xl flex items-center">
+                <img src="/media/placeholder.jpg" data-image="image5" class="object-cover" alt="">
+                <button type="button" data-image="image5" class="absolute bottom-3 right-3 bg-cn-white rounded-full p-2">
+                  <img src="/media/camera.svg" class="pointer-events-none" alt="">
+                </button>
+                <input type="hidden" name="listingImage5" data-image-url="image5">
+              </div>
             </div>
           </div>
           
           <dialog class="bg-cn-light-grey rounded-3xl px-3" id="addImageModal">
             <div class="p-5">
               <label class="px-4" for="image">Image</label>
-              <input class="mb-4 border border-cn-black" type="url" name="image" id="image" data-form-input="createPostInputs" title="Here you can add an image" placeholder="Place url here...">
-              <button>Add</button>
+              <input class="mb-4 border border-cn-black" type="url" name="image" id="image" data-form-input="createListingInputs" title="Here you can add an image" placeholder="Place url here...">
+              <button type="button" id="addImageBtn">Add</button>
             </div>
           </dialog>
 
           <div class="md:px-10 lg:px-10 mx-auto">
             
             <div class="flex flex-col gap-3">
-              <h1 class="pt-10 pb-4">New list item</h1>
+              <h1 class="pt-10 pb-4 text-lg">What are you selling?</h1>
               <div class="">
                 <label class="px-4" for="name">Title</label>
-                <input class="border border-cn-black" type="text" name="title" id="title" data-form-input="createListingInputs" required title="Please enter a title for your post" placeholder="Enter a title for your post">
+                <input class="border border-cn-black" type="text" name="title" id="title" data-form-input="createListingInputs" required title="Please enter a title for your listing" placeholder="Enter a title for your listing">
               </div>
-              <div class="">
-                <label class="px-4" for="endsAt">Deadline date</label>
-                <input class="border border-cn-black" type="date" name="endsAt" id="endsAt" data-form-input="createListingInputs" required title="Enter a deadline date for your post" placeholder="E.g '' 19.05.2024 ''">
+              <div class="flex gap-2">
+                <div class="">
+                  <label class="px-4" for="endsAtDate">Deadline date</label>
+                  <input class="border border-cn-black" type="date" name="endsAtDate" id="endsAtDate" data-form-input="createListingInputs" required title="Enter a deadline date for your listing" placeholder="E.g 19.05.2024">
+                </div>
+                <div class="">
+                  <label class="px-4" for="endsAtTime">Time</label>
+                  <input class="border border-cn-black" type="time" name="endsAtTime" id="endsAtTime" data-form-input="createListingInputs" required title="Enter a deadline time for your listing" placeholder="E.g 20:00">
+                </div>
               </div>
               <div class="">
                 <label class="px-4" for="description">Description</label>
-                <textarea class="border border-cn-black" name="description" id="description" data-form-input="createListingInputs" placeholder="Write here..." maxLength="280"></textarea>
+                <textarea class="border border-cn-black" name="description" rows="4" id="description" data-form-input="createListingInputs" placeholder="Write here..." maxLength="280"></textarea>
                 <p class="message-maxlength"></p>
               </div>
               <!-- <div class="alert d-none" id="createPostAlertMessage" role="alert"></div> -->
