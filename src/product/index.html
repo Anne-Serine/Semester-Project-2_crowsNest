@@ -95,6 +95,47 @@
           </div>
         </div>
       </div>
+
+      <dialog class="p-5 bg-cn-green" id="editListingModal">
+        <form class="mx-auto flex flex-col lg:flex-row mb-20" id="editListingModalForm" method="post" action="">
+          <div class="md:px-10 lg:px-10 mx-auto">
+            
+            <div class="flex flex-col gap-3">
+              <h1 class="pt-10 pb-4 text-lg">Edit listing</h1>
+              <div class="">
+                <label class="px-4" for="name">Title</label>
+                <input class="border border-cn-black" type="text" name="title" id="title" data-form-input="createListingInputs" required title="Please enter a title for your listing" placeholder="Enter a title for your listing">
+              </div>
+              <div class="">
+                <label class="px-4" for="description">Description</label>
+                <textarea class="border border-cn-black" name="description" rows="4" id="description" data-form-input="createListingInputs" placeholder="Write here..." maxLength="280"></textarea>
+                <p class="message-maxlength"></p>
+              </div>
+              <div class="flex flex-col gap-2">
+                <label class="px-4" for="listingImage1">Images</label>
+                <div class="">
+                  <input class="border border-cn-black" type="url" name="listingImage1" data-image-url="image1" placeholder="Input url here...">
+                </div>
+                <div class="">
+                  <input class="border border-cn-black" type="url" name="listingImage2" data-image-url="image2" placeholder="Input url here...">
+                </div>
+                <div class="">
+                  <input class="border border-cn-black" type="url" name="listingImage3" data-image-url="image3" placeholder="Input url here...">
+                </div>
+                <div class="">
+                  <input class="border border-cn-black" type="url" name="listingImage4" data-image-url="image4" placeholder="Input url here...">
+                </div>
+                <div class="">
+                  <input class="border border-cn-black" type="url" name="listingImage5" data-image-url="image5" placeholder="Input url here...">
+                </div>
+              </div>
+              <button type="submit" class="max-w-32 my-4" id="updateListingModalBtn">Update</button>
+            </div>
+              
+          </div>
+        </form>
+      </dialog>
+
     </section>
     <section class="bg-cn-light-grey pb-20">
       <div class="container overflow-hidden">

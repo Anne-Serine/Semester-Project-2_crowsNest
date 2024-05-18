@@ -38,16 +38,8 @@ export async function setCreateNewListingEvent() {
         }
       })
       if(data.title.length > 0 && data.endsAtDate.length > 0) {
-        // console.log(data.title, data.endsAt, data.description, media)
-        // const newListing = await createNewListing(data.title, new Date(data.endsAt), data.description, media)
-        // console.log(newListing)
-
-        // Extract parts of date
         const [year, month, day] = data.endsAtDate.split('-');
-        // Extract parts of time
         const [hours, minutes] = data.endsAtTime.split(':');
-
-        // Create new Date object
         const combinedDate = new Date(year, month - 1, day, hours, minutes);
 
         createNewListing(data.title, combinedDate, data.description, media).then(() => {
