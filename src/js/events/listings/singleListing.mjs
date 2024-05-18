@@ -20,7 +20,7 @@ export async function viewSingleListing() {
     const deleteListingBtn = document.querySelector("#deleteListingBtn");
 
     const imageElement = document.createElement("img");
-    imageElement.setAttribute("src", item.media[0] ? item.media[0].url : "/media/placeholder.jpg");
+    imageElement.setAttribute("src", item.media[0] ? item.media[0].url : "/media/3d-cash-money.jpg");
     imageElement.classList.add("w-full");
     productImage1.innerHTML = "";
     productImage2.innerHTML = "";
