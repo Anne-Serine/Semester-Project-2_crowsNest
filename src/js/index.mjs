@@ -1,4 +1,4 @@
-import { listingsContainer } from "./events/listings/allListings.mjs";
+// import { listingsContainer } from "./events/listings/allListings.mjs";
 import { searchListingsByTitleAndDescription } from "./events/searchListings.mjs";
 import { setRegisterFormListener } from "./events/auth/register.mjs";
 import { setLoginFormListener } from "./events/auth/login.mjs";
@@ -9,6 +9,8 @@ import { toggleSearch } from "./helpers/toggleSearch.mjs";
 import { viewSingleListing } from "./events/listings/singleListing.mjs";
 import { viewSingleProfile } from "./events/profile/viewSingleProfile.mjs";
 import { setCreateNewListingEvent } from "./events/listings/createNewListing.mjs";
+import { viewAllListings } from "./events/listings/allListings.mjs";
+
 
 
 const path = location.pathname;
@@ -26,15 +28,18 @@ if (path === "/register/" || path === "/login/") {
   }
 }
 
-listingsContainer();
+let listingPage = 1;
+viewAllListings(listingPage)
+
 searchListingsByTitleAndDescription();
 logoutUser();
 toggleNav();
 toggleSearch();
 viewSingleListing();
-
 viewSingleProfile();
-setCreateNewListingEvent()
+setCreateNewListingEvent();
+
+
 
 
 const loginBtn = document.querySelector("#loginBtn");

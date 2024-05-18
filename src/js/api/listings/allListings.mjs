@@ -1,10 +1,6 @@
-import { API_BASE, API_ALL_LISTINGS } from '../constants.mjs';
-
-export async function getAllListings() {
+export async function getAllListings(url) {
   try {
-    let postURL = API_BASE + API_ALL_LISTINGS;
-
-    const response = await fetch(postURL);
+    const response = await fetch(url);
     const result = response.json();
 
     if (response.ok) {
