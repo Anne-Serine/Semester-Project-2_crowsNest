@@ -4,6 +4,7 @@ import { viewBiddingHistory } from "../bidding/biddingHistory.mjs";
 import { setBiddingAmount } from "../bidding/calculateBid.mjs";
 import { deleteListingEvent } from "./deleteListing.mjs";
 import { initCountdown } from "../../helpers/countDown.mjs";
+import { editListingEvent } from "./editListing.mjs";
 
 
 export async function viewSingleListing() {
@@ -21,6 +22,8 @@ export async function viewSingleListing() {
     const imageElement = document.createElement("img");
     imageElement.setAttribute("src", item.media[0] ? item.media[0].url : "/media/placeholder.jpg");
     imageElement.classList.add("w-full");
+    productImage1.innerHTML = "";
+    productImage2.innerHTML = "";
     productImage1.appendChild(imageElement);
     
     for(let i = 0; i < item.media.length; i++) {
@@ -44,7 +47,6 @@ export async function viewSingleListing() {
     const endDate = new Date(item.endsAt)
     productEndsAt.innerHTML = endDate.toLocaleString();
     initCountdown(endDate);
-    console.log(endDate)
     
     const productTitle = document.querySelector("#productTitle");
     productTitle.innerHTML = item.title;
@@ -59,20 +61,22 @@ export async function viewSingleListing() {
     const profileName = profile.name;
     const actionButtons = document.querySelectorAll(".action-btn");
     const placeBidContainer = document.querySelector("#placeBidContainer");
+    const now = new Date().getTime();
+    const distance = endDate - now;
 
     if(seller === profileName) {
       actionButtons.forEach((btn) => {
         btn.classList.remove("hidden");
       })
       placeBidContainer.classList.add("hidden");
-    } 
-
+    } else if (distance < 0) {
+      placeBidContainer.classList.add("hidden");
+    }
   
     viewBiddingHistory(item);
     setBiddingAmount(item);
     deleteListingEvent();
-
-    
+    editListingEvent(id);
   }
   
 }
