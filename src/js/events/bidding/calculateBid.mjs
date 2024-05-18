@@ -1,3 +1,7 @@
+import { placeBid } from "../../api/bidding/placeBid.mjs";
+import { viewSingleListing } from "../listings/singleListing.mjs";
+import { viewSingleProfile } from "../profile/viewSingleProfile.mjs";
+
  // Get the highest bid + 1 from product.data
  function minPossibleBid(product) {
   if(product.bids.length === 0) {
@@ -41,7 +45,7 @@ export async function setBiddingAmount(item) {
 
   // Validate and set the current bid when typing something in input
   biddingAmount.addEventListener("input", () => {
-    errorMessage.innerHTML = ''
+    errorMessage.innerHTML = ""
     currentBid = biddingAmount.value
 
     // Do some checks
@@ -58,7 +62,11 @@ export async function setBiddingAmount(item) {
 
   // Submit the bid value in input
   placeBidBtn.addEventListener("click", () => {
-    // The value should be good by now and can be posted
     console.log(currentBid)
+    placeBid(currentBid, item.id).then(() => {
+      viewSingleListing();
+      viewSingleProfile();
+    });
+    
   })
 }

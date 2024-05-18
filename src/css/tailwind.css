@@ -97,3 +97,11 @@ button:disabled {
 dialog::backdrop {
   @apply bg-cn-black opacity-65;
 }
+
+.cn-flex-30 {
+  flex: 1 1 30rem;
+}
+
+.cn-flex-40 {
+  flex: 1 1 40rem;
+}

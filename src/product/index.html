@@ -57,36 +57,85 @@
       </div>
     </header>
 
-    <section class="bg-cn-green">
+    <section class="bg-cn-green" id="listingDetails">
       <div class="lg:container flex flex-wrap">
-        <div class="lg:max-w-[50rem] object-cover" >
-          <div class="rounded-b-3xl max-h-[33rem] w-full lg:max-w-[50rem] overflow-hidden object-cover" id="productImage1"></div>
+        <div class="cn-flex-40 object-cover" >
+          <div class="rounded-b-3xl max-h-[33rem] w-full overflow-hidden object-cover" id="productImage1"></div>
           <div class="grid py-3 gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-3 lg:px-0" id="productImage2"></div>
         </div>
-        <div class="p-3 xl:p-20 max-w-[40rem]">
+        <div class="p-3 xl:p-20 cn-flex-30">
           <p class="pb-5">
             Created by: <span class="font-semibold" id="productSeller"></span>
-            <h1 class="text-2xl mt-10 mb-4" id="productTitle">Jeans and Sweather</h1>
+            <h1 class="text-2xl mt-10 mb-4" id="productTitle"></h1>
             <p id="productDescription"></p>
           </p>
-          <p class="text-xl font-semibold my-3">
-            Current amount:
+          <p class="text-lg font-semibold my-3">
+            Current bid:
             <span class="ps-3 text-3xl mr-5" id="productCurrentBid"></span>
           </p>
           <p class="font-semibold">
-            Ends at: <span id="productEndsAt"></span>
+            Ends at: <span class="font-normal" id="productEndsAt"></span>
           </p>
+          <p class="font-semibold">
+            Time left: <span class="font-normal" id="countdown"></span>
           </p>
 
-          <div class="flex justify-between items-center p-1 bg-cn-white rounded-3xl max-w-52 mx-auto mt-20">
-            <button class="bg-cn-orange text-cn-black p-2 rounded-full size-10 text-2xl" id="decreaseBtn" data-change-bid="decrease">&minus;</button>
-            <input type="number" id="biddingAmount" class="number-input w-16 text-center" />
-            <button class="bg-cn-orange text-cn-black p-2 rounded-full size-10 text-2xl" id="increaseBtn" data-change-bid="increase">&plus;</button>
+          <div id="placeBidContainer">
+            <div class="flex justify-between items-center p-1 bg-cn-white rounded-3xl max-w-52 mx-auto mt-20">
+              <button class="bg-cn-orange text-cn-black p-2 rounded-full size-10 text-2xl" id="decreaseBtn" data-change-bid="decrease">&minus;</button>
+              <input type="number" id="biddingAmount" class="number-input w-16 text-center" />
+              <button class="bg-cn-orange text-cn-black p-2 rounded-full size-10 text-2xl" id="increaseBtn" data-change-bid="increase">&plus;</button>
+            </div>
+            <div class="text-center mt-2 text-red-500" id="errorMessage"></div>
+            <button class="mt-5 mx-auto" id="placeBidBtn">Place bid</button>
           </div>
-          <div class="text-center mt-2 text-red-500" id="errorMessage"></div>
-          <button class="mt-5 mx-auto" id="placeBidBtn">Place bid</button>
+          <div class="flex my-5 gap-2">
+            <button class="action-btn hidden bg-cn-white text-red-500 w-24 border border-cn-dark-grey" id="deleteListingBtn">Delete</button>
+            <button class="action-btn hidden bg-cn-white text-cn-black w-24 border border-cn-dark-grey" id="editListingBtn">Edit</button>
+          </div>
         </div>
       </div>
+
+      <dialog class="p-5 bg-cn-green" id="editListingModal">
+        <form class="mx-auto flex flex-col lg:flex-row mb-20" id="editListingModalForm" method="post" action="">
+          <div class="md:px-10 lg:px-10 mx-auto">
+            
+            <div class="flex flex-col gap-3">
+              <h1 class="pt-10 pb-4 text-lg">Edit listing</h1>
+              <div class="">
+                <label class="px-4" for="name">Title</label>
+                <input class="border border-cn-black" type="text" name="title" id="title" data-form-input="createListingInputs" required title="Please enter a title for your listing" placeholder="Enter a title for your listing">
+              </div>
+              <div class="">
+                <label class="px-4" for="description">Description</label>
+                <textarea class="border border-cn-black" name="description" rows="4" id="description" data-form-input="createListingInputs" placeholder="Write here..." maxLength="280"></textarea>
+                <p class="message-maxlength"></p>
+              </div>
+              <div class="flex flex-col gap-2">
+                <label class="px-4" for="listingImage1">Images</label>
+                <div class="">
+                  <input class="border border-cn-black" type="url" name="listingImage1" data-image-url="image1" placeholder="Input url here...">
+                </div>
+                <div class="">
+                  <input class="border border-cn-black" type="url" name="listingImage2" data-image-url="image2" placeholder="Input url here...">
+                </div>
+                <div class="">
+                  <input class="border border-cn-black" type="url" name="listingImage3" data-image-url="image3" placeholder="Input url here...">
+                </div>
+                <div class="">
+                  <input class="border border-cn-black" type="url" name="listingImage4" data-image-url="image4" placeholder="Input url here...">
+                </div>
+                <div class="">
+                  <input class="border border-cn-black" type="url" name="listingImage5" data-image-url="image5" placeholder="Input url here...">
+                </div>
+              </div>
+              <button type="submit" class="max-w-32 my-4" id="updateListingModalBtn">Update</button>
+            </div>
+              
+          </div>
+        </form>
+      </dialog>
+
     </section>
     <section class="bg-cn-light-grey pb-20">
       <div class="container overflow-hidden">

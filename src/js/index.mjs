@@ -8,6 +8,7 @@ import { toggleNav } from "./helpers/toggleNav.mjs";
 import { toggleSearch } from "./helpers/toggleSearch.mjs";
 import { viewSingleListing } from "./events/listings/singleListing.mjs";
 import { viewSingleProfile } from "./events/profile/viewSingleProfile.mjs";
+import { setCreateNewListingEvent } from "./events/listings/createNewListing.mjs";
 
 
 const path = location.pathname;
@@ -33,6 +34,7 @@ toggleSearch();
 viewSingleListing();
 
 viewSingleProfile();
+setCreateNewListingEvent()
 
 
 const loginBtn = document.querySelector("#loginBtn");
