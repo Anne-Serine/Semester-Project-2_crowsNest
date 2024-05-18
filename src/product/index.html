@@ -60,7 +60,7 @@
     <section class="bg-cn-green" id="listingDetails">
       <div class="lg:container flex flex-wrap">
         <div class="cn-flex-40 object-cover" >
-          <div class="rounded-b-3xl max-h-[33rem] w-full overflow-hidden object-cover" id="productImage1"></div>
+          <div class="rounded-b-3xl w-full overflow-hidden" id="productImage1"></div>
           <div class="grid py-3 gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-3 lg:px-0" id="productImage2"></div>
         </div>
         <div class="p-3 xl:p-20 cn-flex-30">
@@ -88,6 +88,9 @@
             </div>
             <div class="text-center mt-2 text-red-500" id="errorMessage"></div>
             <button class="mt-5 mx-auto" id="placeBidBtn">Place bid</button>
+          </div>
+          <div id="loginToPlaceBidContainer">
+
           </div>
           <div class="flex my-5 gap-2">
             <button class="action-btn hidden bg-cn-white text-red-500 w-24 border border-cn-dark-grey" id="deleteListingBtn">Delete</button>
@@ -124,9 +127,6 @@
                 </div>
                 <div class="">
                   <input class="border border-cn-black" type="url" name="listingImage4" data-image-url="image4" placeholder="Input url here...">
-                </div>
-                <div class="">
-                  <input class="border border-cn-black" type="url" name="listingImage5" data-image-url="image5" placeholder="Input url here...">
                 </div>
               </div>
               <button type="submit" class="max-w-32 my-4" id="updateListingModalBtn">Update</button>
