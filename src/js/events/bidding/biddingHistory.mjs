@@ -1,6 +1,6 @@
 export async function viewBiddingHistory(item) {
   const container = document.querySelector("#biddingHistoryContainer");
-  
+  container.innerHTML = "";
 
   for (let i = item.bids.length - 1; i >= 0; i--) {
     const createdDate = new Date(item.bids[i].created)
