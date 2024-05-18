@@ -46,13 +46,13 @@ const loginBtn = document.querySelector("#loginBtn");
 const logoutBtn = document.querySelector("#logoutBtn");
 const headerNavItems = document.querySelectorAll(".logged-in");
 
-if (loggedIn) {
+if (loggedIn && logoutBtn) {
   logoutBtn.classList.remove("lg:hidden");
   logoutBtn.classList.add("lg:flex");
   headerNavItems.forEach((li) => {
     li.classList.remove("hidden");
   });
-} else {
+} else if (loginBtn) {
   loginBtn.classList.remove("lg:hidden");
   loginBtn.classList.add("lg:flex");
 }

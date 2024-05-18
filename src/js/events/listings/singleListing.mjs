@@ -27,10 +27,21 @@ export async function viewSingleListing() {
     productImage1.appendChild(imageElement);
     
     for(let i = 0; i < item.media.length; i++) {
-      if(i !== 0){
-        productImage2.innerHTML += `<img src="${item.media[i].url}">`
-      }
+      productImage2.innerHTML += `<div class="relative max-h-[10rem] overflow-hidden rounded-xl md:rounded-3xl flex items-center">
+      <img src="${item.media[i].url}" class="object-cover">
+      </div>`
     }
+    const thumbnails = document.querySelectorAll("#productImage2 img");
+    thumbnails.forEach((thumbnail) => {
+      thumbnail.addEventListener("click", (e) => {
+        productImage1.innerHTML = "";
+        const imageUrl = e.target.getAttribute("src");
+        const imageElement = document.createElement("img");
+        imageElement.setAttribute("src", imageUrl);
+        imageElement.classList.add("w-full");
+        productImage1.appendChild(imageElement);
+      })
+    })
     const productSeller = document.querySelector("#productSeller");
     productSeller.innerHTML = item.seller.name;
     
@@ -58,20 +69,29 @@ export async function viewSingleListing() {
 
     const seller = item.seller.name;
     const profile = load("profile");
-    const profileName = profile.name;
+    let profileName;
+    if (profile !== null) {
+      profileName = profile.name;
+    }
     const actionButtons = document.querySelectorAll(".action-btn");
     const placeBidContainer = document.querySelector("#placeBidContainer");
     const now = new Date().getTime();
     const distance = endDate - now;
+    const loginToPlaceBidContainer = document.querySelector("#loginToPlaceBidContainer")
 
     if(seller === profileName) {
       actionButtons.forEach((btn) => {
         btn.classList.remove("hidden");
       })
       placeBidContainer.classList.add("hidden");
+    } else if (!profileName) {
+      placeBidContainer.classList.add("hidden");
+      loginToPlaceBidContainer.innerHTML = `<div class="py-10">
+      <p>You need to <a href="/login/" class="font-semibold underline">login</a> to bid on the item</p>
+      </div>`
     } else if (distance < 0) {
       placeBidContainer.classList.add("hidden");
-    }
+    } 
   
     viewBiddingHistory(item);
     setBiddingAmount(item);
@@ -80,3 +100,4 @@ export async function viewSingleListing() {
   }
   
 }
+
