@@ -1,4 +1,4 @@
-<img width="1681" alt="Skjermbilde 2024-05-19 kl  15 15 02" src="https://github.com/Anne-Serine/Semester-Project-2_crowsNest/assets/125912893/fb0f043b-ed85-4dd9-bda1-c15a615e7eb7">
+<img width="1697" alt="Skjermbilde 2024-05-19 kl  21 45 24" src="https://github.com/Anne-Serine/Semester-Project-2_crowsNest/assets/125912893/ac413801-5d72-46a3-976b-a9a8c568137a">
 
 # Crow's Nest - auction site
 ## Semester Project 2
@@ -61,11 +61,11 @@ The client application utilizes the Noroff API v2 to communicate with the backen
 
 ### To set up the project locally, follow these steps:
 
-- Clone the repository: git clone - - -
-- Install dependencies: npm install
+- Clone the repository: ´git clone https://github.com/Anne-Serine/Semester-Project-2_crowsNest.git´
+- Install dependencies: ´npm install´
 - Obtain a JWT token and API Key by registering and logging in to the Noroff API.
 - Set up environment variables for the JWT token and API Key.
-- Run the application: npm start
+- Run the application: ´npm start´
 
 ## Contributing
 
@@ -79,8 +79,8 @@ The client application utilizes the Noroff API v2 to communicate with the backen
 - Explain Changes in the Pull Request
 - Code Review (wait for feedback and approval for merge)
 
-## Running with Vite
-Using Vite for running the project locally.
+## Bundling and running with Vite
+Using Vite for bundling and running the project locally.
 
 ## Work Space
 
