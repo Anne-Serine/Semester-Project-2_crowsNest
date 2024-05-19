@@ -21,7 +21,7 @@
       <div class="flex gap-20 items-center">
         <nav class="z-10 hidden lg:flex absolute lg:relative top-full bg-cn-black text-cn-white lg:text-cn-black text-center rounded-3xl lg:bg-transparent w-full lg:w-auto p-5 right-0" id="nav">
           <ul class="flex uppercase gap-8 flex-col lg:flex-row">
-            <li><a href="#">Categories</a></li>
+            <li><a href="#" class="read-only:opacity-90 pointer-events-none">Categories</a></li>
             <li class="hidden logged-in"><a href="/profile/">Profile</a></li>
             <li class="hidden logged-in"><a href="/newListing/">New Listing</a></li>
             <li class="hidden lg:hidden logged-in"><a class="logout-btn" href="/">Logout</a></li>
@@ -74,7 +74,7 @@
                   <label for="updateAvatarInput" class="ps-3">Avatar url</label>
                   <input class="rounded-t-3xl border border-cn-black" type="url" name="avatarImage" id="updateAvatarInput" title="Here you can add an image url">
                 </div>
-                <textarea name="bio" id="bio" placeholder="Bio" maxlength="160" class="w-full rounded-t-3xl border border-cn-black mb-3"></textarea>
+                <textarea name="bio" id="bio" placeholder="Bio" maxlength="160" class="w-full rounded-t-3xl border border-cn-black mb-3" aria-label="Profile bio"></textarea>
                 <div class="alert" id="editProfileStatusMessage"></div>
                 <button type="submit">Save</button>
               </form>
@@ -85,15 +85,15 @@
             <h1 class="text-center leading-tight" id="userName">Username</h1>
           </div>
           <div class="flex gap-3">
-            <button>Follow</button>
-            <button><img src="/media/envelope.svg" alt="envelope icon"></button>
+            <button class="read-only:opacity-60 pointer-events-none">Follow</button>
+            <button class="read-only:opacity-60 pointer-events-none"><img src="/media/envelope.svg" alt="envelope icon"></button>
           </div>
           <p class="my-8" id="bioText">Your bio will show here</p>
           <div class="flex flex-wrap gap-2 justify-center lg:justify-between w-full">
             <div class="flex flex-wrap gap-2">
-              <button class="bg-cn-orange text-cn-black px-3 text-sm">Followers</button>
-              <button class="bg-cn-orange text-cn-black px-3 text-sm">Following</button>
-              <button class="bg-cn-orange text-cn-black px-3 text-sm">Sold items</button>
+              <button class="bg-cn-orange text-cn-black px-3 text-sm read-only:opacity-60 pointer-events-none">Followers</button>
+              <button class="bg-cn-orange text-cn-black px-3 text-sm read-only:opacity-60 pointer-events-none">Following</button>
+              <button class="bg-cn-orange text-cn-black px-3 text-sm read-only:opacity-60 pointer-events-none">Sold items</button>
             </div>
             <a href="/newListing/" class="btn hidden lg:flex"><span class="mr-2 text-2xl leading-none">&plus;</span>New item </a>
           </div>
