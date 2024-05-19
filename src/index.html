@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An auction site. A website where you can add items to be bid on and bid on items other users have put up for auction">
+  <script src="/js/index.mjs" type="module"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="/css/tailwind.css" rel="stylesheet">
+  <title>Crow's Nest | Home</title>
+</head>
+<body class="bg-cn-green flex flex-col flex-nowrap h-full min-h-screen">
+  <header class=" bg-cn-orange">
+    <div class="container flex items-center justify-between relative">
+      <a href="/">
+        <img src="/media/cn-logo.svg" class="w-12 md:min-w-20" alt="Crow's Nest Logo">
+      </a>
+      <div class="flex gap-8 items-center">
+        <nav class="z-10 hidden lg:flex absolute lg:relative top-full bg-cn-black text-cn-white lg:text-cn-black text-center rounded-3xl lg:bg-transparent w-full lg:w-auto p-5 right-0" id="nav">
+          <ul class="flex uppercase gap-8 flex-col lg:flex-row">
+            <li><a href="#" class="read-only:opacity-90 pointer-events-none">Categories</a></li>
+            <li class="hidden logged-in"><a href="/profile/">Profile</a></li>
+            <li class="hidden logged-in"><a href="/newListing/">New Listing</a></li>
+            <li class="hidden lg:hidden logged-in"><a class="logout-btn" href="/">Logout</a></li>
+            <li class="hidden logged-in bg-cn-white p-1 rounded-sm lg:bg-transparent lg:p-0">
+              <div class="flex items-center justify-center">
+                <img src="/media/piggy-bank.svg" class="flex mr-2" alt="credits-icon">
+                <span class="credit text-cn-black"></span>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <div class="hidden lg:flex items-center gap-2 relative" id="searchContainer">
+          <img src="/media/search.svg" class="size-6 hidden lg:block" alt="search-icon">
+          <input type="search" placeholder="Search..." class="max-w-32 sm:max-w-52 w-full" aria-label="search-input" id="searchInput">
+          <div class="hidden p-1 absolute -left-10 lg:left-0 top-10 w-[16rem] lg:w-full max-h-[30rem] overflow-y-auto z-10 bg-cn-white">
+            <ul id="searchResults"></ul>
+            <div class="hidden alert" id="searchAlertMessage" role="alert"></div>
+          </div>
+        </div>
+      </div>
+      <a class="hidden lg:hidden" href="/login/" id="loginBtn"><img src="/media/profile.svg" alt="user-icon" class="mr-2"><span>Login</span></a>
+      <a class="hidden lg:hidden logout-btn" id="logoutBtn" href="/"><img src="/media/profile.svg" alt="user-icon" class="mr-2"><span>Logout</span></a>
+      <div class="flex lg:hidden gap-2">
+        <button class="bg-transparent p-2" id="searchBtn"><img src="/media/search.svg" alt="search-icon" class="size-7"></button>
+        <button class="bg-transparent p-2" id="navMenuBtn"><img src="/media/menu.svg" alt="menu-icon" class="size-8"></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="bg-cn-orange flex p-8 pb-10 rounded-b-3xl">
+    <div class="container flex items-end justify-center gap-10 lg:gap-20">
+      <div>
+        <h1 class="text-2xl lg:text-5xl mb-3 lg:leading-tight">Register now <br> for <span class="text-cn-white">1000</span> free credits!</h1>
+        <div>
+          Don´t miss out, sign up now!
+        </div>
+      </div>
+      <div>
+        <img src="/media/3d-cash-money.png" alt="An animated illustration of a money bag character with eyes" class="w-24 mx-auto">
+        <a href="/register/" class="btn whitespace-nowrap">Sign up</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="container py-3 mt-3">Categories</h2>
+    <div class="bg-cn-white p-3 read-only:opacity-90 pointer-events-none">
+      <div class="container overflow-hidden flex flex-wrap">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 mb-5">
+          <div class="max-w-34 sm:max-w-80 border-solid border-cn-orange ">
+            <img src="/media/watch-img.jpg" alt="a hand watch" class="max-h-34 rounded-t-2xl">
+            <div class="flex justify-center bg-cn-black text-cn-white uppercase rounded-bl-md rounded-br-2xl py-2 px-3">
+              <p>Watches</p>
+            </div>
+          </div>
+          <div class="max-w-34 sm:max-w-80 border-solid border-cn-orange ">
+            <img src="/media/flowers-img.jpg" alt="flower bouquet" class="max-h-34 rounded-t-2xl">
+            <div class="flex justify-center bg-cn-black text-cn-white uppercase rounded-bl-md rounded-br-2xl py-2 px-3">
+              <p>Flowers</p>
+            </div>
+          </div>
+          <div class="max-w-34 sm:max-w-80 border-solid border-cn-orange ">
+            <img src="/media/sofa-img.jpg" alt="white sofa" class="max-h-34 rounded-t-2xl">
+            <div class="flex justify-center bg-cn-black text-cn-white uppercase rounded-bl-md rounded-br-2xl py-2 px-3">
+              <p>Sofa</p>
+            </div>
+          </div>
+          <div class="max-w-34 sm:max-w-80 border-solid border-cn-orange ">
+            <img src="/media/camera-img.jpg" alt="a vintage camera" class="max-h-34 rounded-t-2xl">
+            <div class="flex justify-center bg-cn-black text-cn-white uppercase rounded-bl-md rounded-br-2xl py-2 px-3">
+              <p>Camera</p>
+            </div>
+          </div>
+          <div class="max-w-34 sm:max-w-80 border-solid border-cn-orange ">
+            <img src="/media/dress-img.jpg" alt="a yellow flower dress" class="max-h-34 rounded-t-2xl">
+            <div class="flex justify-center bg-cn-black text-cn-white uppercase rounded-bl-md rounded-br-2xl py-2 px-3">
+              <p>Dresses</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <h2 class="my-6">Newest listings</h2>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10" id="allListingsContainer"></div>
+    </div>
+    <div class="flex p-10 mb-10" id="loadMoreContainer">
+      <button type="button" class="mx-auto bg-cn-orange text-cn-black" id="loadMoreListingsBtn">More &plus;</button>
+    </div>
+  </section>
+  
+  <footer class="bg-cn-orange fixed bottom-0 w-full lg:relative mt-auto">
+    <div class="container flex justify-between items-center lg:hidden">
+      <div class="flex items-center gap-5">
+        <a href="/">
+          <img src="/media/home.svg" alt="home-icon">
+        </a>
+        <a href="/profile/">
+          <img src="/media/profile.svg" alt="profile-icon">
+        </a>
+      </div>
+      <a href="/newListing/" class="btn px-5 text-sm"><span class="mr-1 text-xl leading-none">&plus;</span>New item</a>
+      <div class="hidden logged-in">
+        <div class="flex items-center">
+          <img src="/media/piggy-bank.svg" class="flex mr-2" alt="credits-icon">
+          <span class="credit"></span>
+        </div>
+      </div>
+    </div>
+    <div class="container hidden lg:flex justify-between">
+      <p>
+        789 Heritage Lane,<br>
+        Auction City Biddington,<br>
+        Auctionland 98765
+      </p>
+      <img src="/media/cn-logo.svg" alt="crow's nest logo" class="size-20">
+      <div class="flex flex-col">
+        <p class="font-bold">Contact:</p>
+        <a href="tel:+4712345678">+47 123 45 678</a>
+        <a href="mailto:crows_nest@email.com">crows_nest@email.com</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

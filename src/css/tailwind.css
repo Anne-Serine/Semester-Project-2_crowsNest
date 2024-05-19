@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Montserrat", system-ui, sans-serif;
+  }
+
+  h1,
+  h2, 
+  h3 {
+    font-family: "Poppins", system-ui, sans-serif;
+    font-weight: 500;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+}
+
+button,
+.btn {
+  @apply bg-cn-black p-1 py-2 px-6 text-cn-white rounded-full min-w-0 items-center flex justify-center; 
+}
+
+.btn.orange {
+  @apply bg-cn-orange text-cn-black
+}
+
+.container {
+  @apply p-3
+}
+
+textarea,
+input:not([type="checkbox"], [type="radio"]) {
+  @apply rounded-3xl p-1 px-4;
+}
+
+/* input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="url"] {
+  @apply rounded-full p-1 px-4
+} */
+
+label {
+  @apply block
+}
+
+.logo-logged-out,
+.profile-avatar {
+  left: auto;
+  top: -65px;
+}
+
+.profile-avatar {
+  top: -80px;
+}
+
+@media screen and (min-width: 64rem) {
+  .logo-logged-out {
+    left: -88px;
+    top: 40px;
+  }
+}
+
+.alert {
+  @apply py-1 px-2
+}
+
+.alert.error {
+  @apply text-red-700 font-semibold;
+}
+
+.alert.success {
+  @apply text-green-700 font-semibold;
+}
+
+.number-input {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  -ms-appearance: textfield;
+  appearance: textfield;
+}
+
+button:disabled {
+  opacity: 50%;
+}
+
+dialog::backdrop {
+  @apply bg-cn-black opacity-65;
+}
+
+.cn-flex-30 {
+  flex: 1 1 30rem;
+}
+
+.cn-flex-40 {
+  flex: 1 1 40rem;
+}

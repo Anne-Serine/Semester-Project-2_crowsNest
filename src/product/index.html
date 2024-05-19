@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An auction site. A website where you can add items to be bid on and bid on items other users have put up for auction">
+    <script src="/js/index.mjs" type="module"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet">
+    <link href="/css/tailwind.css" rel="stylesheet">
+    <title>Crow's Nest | Profile</title>
+  </head>
+
+  <body class="bg-cn-orange flex flex-col flex-nowrap h-full min-h-screen">
+    <header class=" bg-cn-orange">
+      <div class="container flex items-center justify-between relative">
+        <a href="/">
+          <img src="/media/cn-logo.svg" class="w-12 md:min-w-20" alt="Crow's Nest Logo">
+        </a>
+        <div class="flex gap-20 items-center">
+          <nav class="z-10 hidden lg:flex absolute lg:relative top-full bg-cn-black text-cn-white lg:text-cn-black text-center rounded-3xl lg:bg-transparent w-full lg:w-auto p-5 right-0" id="nav">
+            <ul class="flex uppercase gap-8 flex-col lg:flex-row">
+              <li><a href="#" class="read-only:opacity-90 pointer-events-none">Categories</a></li>
+              <li class="hidden logged-in"><a href="/profile/">Profile</a></li>
+              <li class="hidden logged-in"><a href="/newListing/">New Listing</a></li>
+              <li class="hidden lg:hidden logged-in"><a class="logout-btn" href="/">Logout</a></li>
+              <li class="hidden logged-in bg-cn-white p-1 rounded-sm lg:bg-transparent lg:p-0">
+                <div class="flex items-center justify-center">
+                  <img src="/media/piggy-bank.svg" class="flex mr-2" alt="credits-icon">
+                  <span class="credit text-cn-black"></span>
+                </div>
+              </li>
+            </ul>
+          </nav>
+          <div class="hidden lg:flex items-center gap-2 relative" id="searchContainer">
+            <img src="/media/search.svg" class="size-6 hidden lg:block" alt="search-icon">
+            <input type="search" placeholder="Search..." class="max-w-32 sm:max-w-52 w-full" aria-label="search-input" id="searchInput">
+            <div class="hidden p-1 absolute -left-10 lg:left-0 top-10 w-[16rem] lg:w-full max-h-[30rem] overflow-y-auto z-10 bg-cn-white">
+              <ul id="searchResults"></ul>
+              <div class="hidden alert" id="searchAlertMessage" role="alert"></div>
+            </div>
+          </div>
+        </div>
+        <a class="hidden lg:hidden" href="/login/" id="loginBtn"><img src="/media/profile.svg" alt="user-icon" class="mr-2"><span>Login</span></a>
+        <a class="hidden lg:hidden logout-btn" id="logoutBtn" href="/"><img src="/media/profile.svg" alt="user-icon" class="mr-2"><span>Logout</span></a>
+        <div class="flex lg:hidden gap-2">
+          <button class="bg-transparent p-2" id="searchBtn"><img src="/media/search.svg" alt="search-icon" class="size-7"></button>
+          <button class="bg-transparent p-2" id="navMenuBtn"><img src="/media/menu.svg" alt="menu-icon" class="size-8"></button>
+        </div>
+      </div>
+    </header>
+
+    <section class="bg-cn-green">
+      <div class="lg:container flex flex-wrap" id="listingDetails">
+        <div class="cn-flex-40 object-cover" >
+          <div class="rounded-b-3xl w-full overflow-hidden" id="productImage1"></div>
+          <div class="grid py-3 gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-3 lg:px-0" id="productImage2"></div>
+        </div>
+
+        <div class="p-3 xl:p-20 cn-flex-30">
+          <p class="pb-5">Created by: <span class="font-semibold" id="productSeller"></span></p>
+          <h1 class="text-2xl mt-10 mb-4" id="productTitle">Item</h1>
+          <p id="productDescription"></p>
+          <p class="text-lg font-semibold my-3">
+            Current bid:
+            <span class="ps-3 text-3xl mr-5" id="productCurrentBid"></span>
+          </p>
+          <p class="font-semibold">
+            Ends at: <span class="font-normal" id="productEndsAt"></span>
+          </p>
+          <p class="font-semibold">
+            Time left: <span class="font-normal" id="countdown"></span>
+          </p>
+
+          <div id="placeBidContainer">
+            <div class="flex justify-between items-center p-1 bg-cn-white rounded-3xl max-w-52 mx-auto mt-20">
+              <button class="bg-cn-orange text-cn-black p-2 rounded-full size-10 text-2xl" id="decreaseBtn" data-change-bid="decrease">&minus;</button>
+              <input type="number" id="biddingAmount" class="number-input w-16 text-center" aria-label="Bidding amount">
+              <button class="bg-cn-orange text-cn-black p-2 rounded-full size-10 text-2xl" id="increaseBtn" data-change-bid="increase">&plus;</button>
+            </div>
+            <div class="text-center mt-2 text-red-500" id="errorMessage"></div>
+            <button class="mt-5 mx-auto" id="placeBidBtn">Place bid</button>
+          </div>
+          <div id="loginToPlaceBidContainer">
+
+          </div>
+          <div class="flex my-5 gap-2">
+            <button class="action-btn hidden bg-cn-white text-red-500 w-24 border border-cn-dark-grey" id="deleteListingBtn">Delete</button>
+            <button class="action-btn hidden bg-cn-white text-cn-black w-24 border border-cn-dark-grey" id="editListingBtn">Edit</button>
+          </div>
+        </div>
+      </div>
+
+      <dialog class="p-5 bg-cn-green" id="editListingModal">
+        <form class="mx-auto flex flex-col lg:flex-row mb-20" id="editListingModalForm" method="post" action="../product/">
+          <div class="md:px-10 lg:px-10 mx-auto">
+            
+            <div class="flex flex-col gap-3">
+              <h1 class="pt-10 pb-4 text-lg">Edit listing</h1>
+              <div class="">
+                <label class="px-4" for="title">Title</label>
+                <input class="border border-cn-black" type="text" name="title" id="title" data-form-input="createListingInputs" required title="Please enter a title for your listing" placeholder="Enter a title for your listing">
+              </div>
+              <div>
+                <label class="px-4" for="description">Description</label>
+                <textarea class="border border-cn-black" name="description" rows="4" id="description" data-form-input="createListingInputs" placeholder="Write here..." maxLength="280"></textarea>
+                <p class="message-maxlength"></p>
+              </div>
+              <div class="flex flex-col gap-2">
+                <div class="px-4">Images</div>
+                <div>
+                  <input class="border border-cn-black" type="url" name="listingImage1" data-image-url="image1" placeholder="Input url here..." aria-label="Listing image 1 url">
+                </div>
+                <div>
+                  <input class="border border-cn-black" type="url" name="listingImage2" data-image-url="image2" placeholder="Input url here..." aria-label="Listing image 2 url">
+                </div>
+                <div>
+                  <input class="border border-cn-black" type="url" name="listingImage3" data-image-url="image3" placeholder="Input url here..." aria-label="Listing image 3 url">
+                </div>
+                <div>
+                  <input class="border border-cn-black" type="url" name="listingImage4" data-image-url="image4" placeholder="Input url here..." aria-label="Listing image 4 url">
+                </div>
+              </div>
+              <button type="submit" class="max-w-32 my-4" id="updateListingModalBtn">Update</button>
+            </div>
+              
+          </div>
+        </form>
+      </dialog>
+
+    </section>
+    <section class="bg-cn-light-grey pb-20">
+      <div class="container overflow-hidden">
+        <h2 class="mt-3 mb-5">Bidding history</h2>
+        <div class="flex gap-3 overflow-x-auto pb-5" id="biddingHistoryContainer">
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-cn-orange fixed bottom-0 w-full lg:relative mt-auto">
+      <div class="container flex justify-between items-center lg:hidden">
+        <div class="flex items-center gap-5">
+          <a href="/">
+            <img src="/media/home.svg" alt="home-icon">
+          </a>
+          <a href="/profile/">
+            <img src="/media/profile.svg" alt="profile-icon">
+          </a>
+        </div>
+        <a href="/newListing/" class="btn px-5 text-sm"><span class="mr-1 text-xl leading-none">&plus;</span>New item</a>
+        <div class="hidden logged-in">
+          <div class="flex items-center">
+            <img src="/media/piggy-bank.svg" class="flex mr-2" alt="credits-icon">
+            <span class="credit"></span>
+          </div>
+        </div>
+      </div>
+      <div class="container hidden lg:flex justify-between">
+        <p>
+          789 Heritage Lane,<br>
+          Auction City Biddington,<br>
+          Auctionland 98765
+        </p>
+        <img src="/media/cn-logo.svg" alt="crow's nest logo" class="size-20">
+        <div class="flex flex-col">
+          <p class="font-bold">Contact:</p>
+          <a href="tel:+4712345678">+47 123 45 678</a>
+          <a href="mailto:crows_nest@email.com">crows_nest@email.com</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

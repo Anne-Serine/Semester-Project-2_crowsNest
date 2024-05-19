@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An auction site. A website where you can add items to be bid on and bid on items other users have put up for auction">
+  <script src="/js/index.mjs" type="module"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="/css/tailwind.css" rel="stylesheet">
+  <title>Crow's Nest | Profile</title>
+</head>
+
+<body class="bg-cn-orange flex flex-col flex-nowrap h-full min-h-screen">
+  <header class=" bg-cn-orange">
+    <div class="container flex items-center justify-between relative">
+      <a href="/">
+        <img src="/media/cn-logo.svg" class="w-12 md:min-w-20" alt="Crow's Nest Logo">
+      </a>
+      <div class="flex gap-20 items-center">
+        <nav class="z-10 hidden lg:flex absolute lg:relative top-full bg-cn-black text-cn-white lg:text-cn-black text-center rounded-3xl lg:bg-transparent w-full lg:w-auto p-5 right-0" id="nav">
+          <ul class="flex uppercase gap-8 flex-col lg:flex-row">
+            <li><a href="#" class="read-only:opacity-90 pointer-events-none">Categories</a></li>
+            <li class="hidden logged-in"><a href="/profile/">Profile</a></li>
+            <li class="hidden logged-in"><a href="/newListing/">New Listing</a></li>
+            <li class="hidden lg:hidden logged-in"><a class="logout-btn" href="/">Logout</a></li>
+            <li class="hidden logged-in bg-cn-white p-1 rounded-sm lg:bg-transparent lg:p-0">
+              <div class="flex items-center justify-center">
+                <img src="/media/piggy-bank.svg" class="flex mr-2" alt="credits-icon">
+                <span class="credit text-cn-black"></span>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <div class="hidden lg:flex items-center gap-2 relative" id="searchContainer">
+          <img src="/media/search.svg" class="size-6 hidden lg:block" alt="search-icon">
+          <input type="search" placeholder="Search..." class="max-w-32 sm:max-w-52 w-full" aria-label="search-input" id="searchInput">
+          <div class="hidden p-1 absolute -left-10 lg:left-0 top-10 w-[16rem] lg:w-full max-h-[30rem] overflow-y-auto z-10 bg-cn-white">
+            <ul id="searchResults"></ul>
+            <div class="hidden alert" id="searchAlertMessage" role="alert"></div>
+          </div>
+        </div>
+      </div>
+      <a class="hidden lg:hidden logout-btn" id="logoutBtn" href="/"><img src="/media/profile.svg" alt="user-icon" class="mr-2"><span>Logout</span></a>
+      <div class="flex lg:hidden gap-2">
+        <button class="bg-transparent p-2" id="searchBtn"><img src="/media/search.svg" alt="search-icon" class="size-7"></button>
+        <button class="bg-transparent p-2" id="navMenuBtn"><img src="/media/menu.svg" alt="menu-icon" class="size-8"></button>
+      </div>
+    </div>
+  </header>
+  
+  <section class="bg-cn-white sm:mt-80">
+    <div class="flex">
+      <div class="sm:container md:max-w-[40rem] lg:max-w-[60rem] bg-cn-green rounded-t-3xl sm:-mt-52">
+         
+        <form class="mx-auto flex flex-col lg:flex-row mb-20" id="createNewListingForm" method="post" action="../newListing/">
+          <div class="lg:max-w-[50rem] sm:mx-5">
+            <div class="relative">
+              <img src="/media/placeholder.jpg" data-image="image1" class="rounded-b-3xl w-full" alt="placeholder">
+              <button type="button" data-image="image1" class="absolute bottom-3 right-3 bg-cn-white rounded-full p-2">
+                <img src="/media/camera.svg" class="pointer-events-none" alt="camera icon">
+              </button>
+              <input type="hidden" name="listingImage1" data-image-url="image1" data-form-input>
+            </div>
+            <div class="grid py-3 gap-3 grid-cols-4 px-3 lg:px-0">
+              <div class="relative max-h-[7rem] overflow-hidden rounded-xl md:rounded-3xl flex items-center">
+                <img src="/media/placeholder.jpg" data-image="image2" class="w-full h-full object-cover" alt="placeholder">
+                <button type="button" data-image="image2" class="absolute bottom-3 right-3 bg-cn-white rounded-full p-2">
+                  <img src="/media/camera.svg" class="pointer-events-none" alt="camera icon">
+                </button>
+                <input type="hidden" name="listingImage2" data-image-url="image2" data-form-input>
+              </div>
+              <div class="relative max-h-[7rem] overflow-hidden rounded-xl md:rounded-3xl flex items-center">
+                <img src="/media/placeholder.jpg" data-image="image3" class="w-full h-full object-cover" alt="placeholder">
+                <button type="button" data-image="image3" class="absolute bottom-3 right-3 bg-cn-white rounded-full p-2">
+                  <img src="/media/camera.svg" class="pointer-events-none" alt="camera icon">
+                </button>
+                <input type="hidden" name="listingImage3" data-image-url="image3" data-form-input>
+              </div>
+              <div class="relative max-h-[7rem] overflow-hidden rounded-xl md:rounded-3xl flex items-center">
+                <img src="/media/placeholder.jpg" data-image="image4" class="w-full h-full object-cover" alt="placeholder">
+                <button type="button" data-image="image4" class="absolute bottom-3 right-3 bg-cn-white rounded-full p-2">
+                  <img src="/media/camera.svg" class="pointer-events-none" alt="camera icon">
+                </button>
+                <input type="hidden" name="listingImage4" data-image-url="image4" data-form-input>
+              </div>
+            </div>
+          </div>
+          
+          <dialog class="bg-cn-light-grey rounded-3xl px-3" id="addImageModal">
+            <div class="p-5">
+              <label class="px-4" for="image">Image</label>
+              <input class="mb-4 border border-cn-black" type="url" name="image" id="image" data-form-input="createListingInputs" title="Here you can add an image" placeholder="Place url here...">
+              <button type="button" id="addImageBtn">Add</button>
+            </div>
+          </dialog>
+
+          <div class="md:px-10 lg:px-10 mx-auto">
+            
+            <div class="flex flex-col gap-3">
+              <h1 class="pt-10 pb-4 text-lg">What are you selling?</h1>
+              <div class="">
+                <label class="px-4" for="title">Title</label>
+                <input class="border border-cn-black" type="text" name="title" id="title" data-form-input="createListingInputs" required title="Please enter a title for your listing" placeholder="Enter a title for your listing">
+              </div>
+              <div class="flex gap-2">
+                <div class="">
+                  <label class="px-4" for="endsAtDate">Deadline date</label>
+                  <input class="border border-cn-black" type="date" name="endsAtDate" id="endsAtDate" data-form-input="createListingInputs" required title="Enter a deadline date for your listing">
+                </div>
+                <div class="">
+                  <label class="px-4" for="endsAtTime">Time</label>
+                  <input class="border border-cn-black" type="time" name="endsAtTime" id="endsAtTime" data-form-input="createListingInputs" required title="Enter a deadline time for your listing">
+                </div>
+              </div>
+              <div class="">
+                <label class="px-4" for="description">Description</label>
+                <textarea class="border border-cn-black" name="description" rows="4" id="description" data-form-input="createListingInputs" placeholder="Write here..." maxLength="280"></textarea>
+                <p class="message-maxlength"></p>
+              </div>
+              <div id="createListingStatus" class="alert"></div>
+              <button type="submit" class="max-w-32 my-4" id="registerSubmitBtn">Create</button>
+            </div>
+              
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  
+  
+  <footer class="bg-cn-orange fixed bottom-0 w-full lg:relative mt-auto">
+    <div class="container flex justify-between items-center lg:hidden">
+      <div class="flex items-center gap-5">
+        <a href="/">
+          <img src="/media/home.svg" alt="home-icon">
+        </a>
+        <a href="/profile/">
+          <img src="/media/profile.svg" alt="profile-icon">
+        </a>
+      </div>
+      <a href="/newListing/" class="btn px-5 text-sm"><span class="mr-1 text-xl leading-none">&plus;</span>New item</a>
+      <div class="hidden logged-in">
+        <div class="flex items-center">
+          <img src="/media/piggy-bank.svg" class="flex mr-2" alt="credits-icon">
+          <span class="credit"></span>
+        </div>
+      </div>
+    </div>
+    <div class="container hidden lg:flex justify-between">
+      <p>
+        789 Heritage Lane,<br>
+        Auction City Biddington,<br>
+        Auctionland 98765
+      </p>
+      <img src="/media/cn-logo.svg" alt="crow's nest logo" class="size-20">
+      <div class="flex flex-col">
+        <p class="font-bold">Contact:</p>
+        <a href="tel:+4712345678">+47 123 45 678</a>
+        <a href="mailto:crows_nest@email.com">crows_nest@email.com</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An auction site. A website where you can add items to be bid on and bid on items other users have put up for auction">
+  <script src="/js/index.mjs" type="module"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="/css/tailwind.css" rel="stylesheet">
+  <title>Crow's Nest | Profile</title>
+</head>
+
+<body class="bg-cn-orange flex flex-col flex-nowrap h-full min-h-screen">
+  <header class=" bg-cn-orange">
+    <div class="container flex items-center justify-between relative">
+      <a href="/">
+        <img src="/media/cn-logo.svg" class="w-12 md:min-w-20" alt="Crow's Nest Logo">
+      </a>
+      <div class="flex gap-20 items-center">
+        <nav class="z-10 hidden lg:flex absolute lg:relative top-full bg-cn-black text-cn-white lg:text-cn-black text-center rounded-3xl lg:bg-transparent w-full lg:w-auto p-5 right-0" id="nav">
+          <ul class="flex uppercase gap-8 flex-col lg:flex-row">
+            <li><a href="#" class="read-only:opacity-90 pointer-events-none">Categories</a></li>
+            <li class="hidden logged-in"><a href="/profile/">Profile</a></li>
+            <li class="hidden logged-in"><a href="/newListing/">New Listing</a></li>
+            <li class="hidden lg:hidden logged-in"><a class="logout-btn" href="/">Logout</a></li>
+            <li class="hidden logged-in bg-cn-white p-1 rounded-sm lg:bg-transparent lg:p-0">
+              <div class="flex items-center justify-center">
+                <img src="/media/piggy-bank.svg" class="flex mr-2" alt="credits-icon">
+                <span class="credit text-cn-black"></span>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <div class="hidden lg:flex items-center gap-2 relative" id="searchContainer">
+          <img src="/media/search.svg" class="size-6 hidden lg:block" alt="search-icon">
+          <input type="search" placeholder="Search..." class="max-w-32 sm:max-w-52 w-full" aria-label="search-input" id="searchInput">
+          <div class="hidden p-1 absolute -left-10 lg:left-0 top-10 w-[16rem] lg:w-full max-h-[30rem] overflow-y-auto z-10 bg-cn-white">
+            <ul id="searchResults"></ul>
+            <div class="hidden alert" id="searchAlertMessage" role="alert"></div>
+          </div>
+        </div>
+      </div>
+      <a class="hidden lg:hidden logout-btn" id="logoutBtn" href="/"><img src="/media/profile.svg" alt="user-icon" class="mr-2"><span>Logout</span></a>
+      <div class="flex lg:hidden gap-2">
+        <button class="bg-transparent p-2" id="searchBtn"><img src="/media/search.svg" alt="search-icon" class="size-7"></button>
+        <button class="bg-transparent p-2" id="navMenuBtn"><img src="/media/menu.svg" alt="menu-icon" class="size-8"></button>
+      </div>
+    </div>
+  </header>
+  
+  <section class="bg-cn-white mt-80">
+    <div class="flex">
+      <div class="container bg-cn-green rounded-t-3xl -mt-52">
+        <div class="max-w-[40rem] mx-auto flex flex-col items-center relative w-full pt-16 mb-20">
+          <div class="absolute profile-avatar">
+            <div class="size-32 rounded-full overflow-hidden">
+              <img src="#" id="userAvatar" alt="user avatar" class="object-cover w-full h-full">
+            </div>
+            <button class="bg-cn-white rounded-full p-2 absolute right-0 bottom-0" id="updateAvatar">
+              <img src="/media/camera.svg" class="w-6" alt="camera icon">
+            </button>
+          </div>
+
+          <dialog class="bg-cn-white rounded-3xl relative" id="updateAvatarModal">
+            <div class="p-5">
+              <div class="flex items-center justify-between">
+                <h2 class="text-md">Update Avatar</h2>
+                <button class="text-cn-black text-3xl leading-none bg-transparent px-2" id="closeEditProfileBtn" title="close">&times;</button>
+              </div>
+              <form id="updateProfileForm" method="post" action="../profile/">
+                <div class="py-3 flex flex-col">
+                  <label for="updateAvatarInput" class="ps-3">Avatar url</label>
+                  <input class="rounded-t-3xl border border-cn-black" type="url" name="avatarImage" id="updateAvatarInput" title="Here you can add an image url">
+                </div>
+                <textarea name="bio" id="bio" placeholder="Bio" maxlength="160" class="w-full rounded-t-3xl border border-cn-black mb-3" aria-label="Profile bio"></textarea>
+                <div class="alert" id="editProfileStatusMessage"></div>
+                <button type="submit">Save</button>
+              </form>
+            </div>
+          </dialog>
+
+          <div class="pb-5" >
+            <h1 class="text-center leading-tight" id="userName">Username</h1>
+          </div>
+          <div class="flex gap-3">
+            <button class="read-only:opacity-60 pointer-events-none">Follow</button>
+            <button class="read-only:opacity-60 pointer-events-none"><img src="/media/envelope.svg" alt="envelope icon"></button>
+          </div>
+          <p class="my-8" id="bioText">Your bio will show here</p>
+          <div class="flex flex-wrap gap-2 justify-center lg:justify-between w-full">
+            <div class="flex flex-wrap gap-2">
+              <button class="bg-cn-orange text-cn-black px-3 text-sm read-only:opacity-60 pointer-events-none">Followers</button>
+              <button class="bg-cn-orange text-cn-black px-3 text-sm read-only:opacity-60 pointer-events-none">Following</button>
+              <button class="bg-cn-orange text-cn-black px-3 text-sm read-only:opacity-60 pointer-events-none">Sold items</button>
+            </div>
+            <a href="/newListing/" class="btn hidden lg:flex"><span class="mr-2 text-2xl leading-none">&plus;</span>New item </a>
+          </div>
+        </div>
+
+        <div class="md:px-10 lg:px-32">
+          <h2 class="pt-10 pb-4">Active items</h2>
+          <div class="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 mb-16" id="profileListingsContainer">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <footer class="bg-cn-orange fixed bottom-0 w-full lg:relative mt-auto">
+    <div class="container flex justify-between items-center lg:hidden">
+      <div class="flex items-center gap-5">
+        <a href="/">
+          <img src="/media/home.svg" alt="home-icon">
+        </a>
+        <a href="/profile/">
+          <img src="/media/profile.svg" alt="profile-icon">
+        </a>
+      </div>
+      <a href="/newListing/" class="btn px-5 text-sm"><span class="mr-1 text-xl leading-none">&plus;</span>New item</a>
+      <div class="hidden logged-in">
+        <div class="flex items-center">
+          <img src="/media/piggy-bank.svg" class="flex mr-2" alt="credits-icon">
+          <span class="credit"></span>
+        </div>
+      </div>
+    </div>
+    <div class="container hidden lg:flex justify-between">
+      <p>
+        789 Heritage Lane,<br>
+        Auction City Biddington,<br>
+        Auctionland 98765
+      </p>
+      <img src="/media/cn-logo.svg" alt="crow's nest logo" class="size-20">
+      <div class="flex flex-col">
+        <p class="font-bold">Contact:</p>
+        <a href="tel:+4712345678">+47 123 45 678</a>
+        <a href="mailto:crows_nest@email.com">crows_nest@email.com</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
