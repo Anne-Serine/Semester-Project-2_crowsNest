@@ -90,5 +90,3 @@ Using Vite for bundling and running the project locally.
 
 [My LinkedIn page](https://www.linkedin.com/in/anne-serine-johannessen-587b4024a/)
 
-
-
