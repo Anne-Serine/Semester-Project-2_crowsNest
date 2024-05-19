@@ -61,11 +61,11 @@ The client application utilizes the Noroff API v2 to communicate with the backen
 
 ### To set up the project locally, follow these steps:
 
-- Clone the repository: ´git clone https://github.com/Anne-Serine/Semester-Project-2_crowsNest.git´
-- Install dependencies: ´npm install´
+- Clone the repository: `git clone https://github.com/Anne-Serine/Semester-Project-2_crowsNest.git`
+- Install dependencies: `npm install`
 - Obtain a JWT token and API Key by registering and logging in to the Noroff API.
 - Set up environment variables for the JWT token and API Key.
-- Run the application: ´npm start´
+- Run the application: `npm start`
 
 ## Contributing
 
