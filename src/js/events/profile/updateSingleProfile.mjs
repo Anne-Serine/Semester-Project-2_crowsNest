@@ -1,4 +1,5 @@
 import { updateProfile } from "../../api/profile/updateProfile.mjs";
+import { showStatusMessage } from "../../helpers/showStatusMessage.mjs";
 
 export async function updateSingleProfile(userAvatar, avatarUrl) {
   const updateAvatarModalBtn = document.querySelector("#updateAvatar");
@@ -28,18 +29,22 @@ export async function updateSingleProfile(userAvatar, avatarUrl) {
           alt: ""
         }
       });
+      if (profile) {
       const user = profile.data;
-      userAvatar.setAttribute("src", user.avatar.url);
-      userAvatar.setAttribute("alt", user.avatar.alt);
-
-      const bioText = document.querySelector("#bioText");
-      if (user.bio.length > 0) {
-        bioText.innerHTML = user.bio;
+        userAvatar.setAttribute("src", user.avatar.url);
+        userAvatar.setAttribute("alt", user.avatar.alt);
+  
+        const bioText = document.querySelector("#bioText");
+        if (user.bio && user.bio.length > 0) {
+          bioText.innerHTML = user.bio;
+        } else {
+          bioText.innerHTML = "Your bio will show here"
+        }
+  
+        updateAvatarModal.close();
       } else {
-        bioText.innerHTML = "Your bio will show here"
+        showStatusMessage("error", "Must be a publicly available image url", "#editProfileStatusMessage" )
       }
-
-      updateAvatarModal.close();
     })
 
   }
