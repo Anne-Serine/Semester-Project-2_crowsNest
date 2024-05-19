@@ -1,20 +1,16 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="An auction site. A website where you can add items to be bid on and bid on items other users have put up for auction"
-    />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An auction site. A website where you can add items to be bid on and bid on items other users have put up for auction">
     <script src="/js/index.mjs" type="module"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link href="/css/tailwind.css" rel="stylesheet" />
+      rel="stylesheet">
+    <link href="/css/tailwind.css" rel="stylesheet">
     <title>Crow's Nest | Profile</title>
   </head>
 
@@ -41,7 +37,7 @@
           </nav>
           <div class="hidden lg:flex items-center gap-2 relative" id="searchContainer">
             <img src="/media/search.svg" class="size-6 hidden lg:block" alt="search-icon">
-            <input type="search" placeholder="Search..." class="max-w-32 sm:max-w-52 w-full" aria-label="search-input" id="searchInput"/>
+            <input type="search" placeholder="Search..." class="max-w-32 sm:max-w-52 w-full" aria-label="search-input" id="searchInput">
             <div class="hidden p-1 absolute -left-10 lg:left-0 top-10 w-[16rem] lg:w-full max-h-[30rem] overflow-y-auto z-10 bg-cn-white">
               <ul id="searchResults"></ul>
               <div class="hidden alert" id="searchAlertMessage" role="alert"></div>
@@ -64,11 +60,9 @@
           <div class="grid py-3 gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-3 lg:px-0" id="productImage2"></div>
         </div>
         <div class="p-3 xl:p-20 cn-flex-30">
-          <p class="pb-5">
-            Created by: <span class="font-semibold" id="productSeller"></span>
-            <h1 class="text-2xl mt-10 mb-4" id="productTitle"></h1>
-            <p id="productDescription"></p>
-          </p>
+          <p class="pb-5">Created by: <span class="font-semibold" id="productSeller"></span></p>
+          <h1 class="text-2xl mt-10 mb-4" id="productTitle">Item</h1>
+          <p id="productDescription"></p>
           <p class="text-lg font-semibold my-3">
             Current bid:
             <span class="ps-3 text-3xl mr-5" id="productCurrentBid"></span>
@@ -83,7 +77,7 @@
           <div id="placeBidContainer">
             <div class="flex justify-between items-center p-1 bg-cn-white rounded-3xl max-w-52 mx-auto mt-20">
               <button class="bg-cn-orange text-cn-black p-2 rounded-full size-10 text-2xl" id="decreaseBtn" data-change-bid="decrease">&minus;</button>
-              <input type="number" id="biddingAmount" class="number-input w-16 text-center" />
+              <input type="number" id="biddingAmount" class="number-input w-16 text-center">
               <button class="bg-cn-orange text-cn-black p-2 rounded-full size-10 text-2xl" id="increaseBtn" data-change-bid="increase">&plus;</button>
             </div>
             <div class="text-center mt-2 text-red-500" id="errorMessage"></div>
@@ -100,7 +94,7 @@
       </div>
 
       <dialog class="p-5 bg-cn-green" id="editListingModal">
-        <form class="mx-auto flex flex-col lg:flex-row mb-20" id="editListingModalForm" method="post" action="">
+        <form class="mx-auto flex flex-col lg:flex-row mb-20" id="editListingModalForm" method="post" action="../product/">
           <div class="md:px-10 lg:px-10 mx-auto">
             
             <div class="flex flex-col gap-3">
@@ -109,23 +103,23 @@
                 <label class="px-4" for="name">Title</label>
                 <input class="border border-cn-black" type="text" name="title" id="title" data-form-input="createListingInputs" required title="Please enter a title for your listing" placeholder="Enter a title for your listing">
               </div>
-              <div class="">
+              <div>
                 <label class="px-4" for="description">Description</label>
                 <textarea class="border border-cn-black" name="description" rows="4" id="description" data-form-input="createListingInputs" placeholder="Write here..." maxLength="280"></textarea>
                 <p class="message-maxlength"></p>
               </div>
               <div class="flex flex-col gap-2">
                 <label class="px-4" for="listingImage1">Images</label>
-                <div class="">
+                <div>
                   <input class="border border-cn-black" type="url" name="listingImage1" data-image-url="image1" placeholder="Input url here...">
                 </div>
-                <div class="">
+                <div>
                   <input class="border border-cn-black" type="url" name="listingImage2" data-image-url="image2" placeholder="Input url here...">
                 </div>
-                <div class="">
+                <div>
                   <input class="border border-cn-black" type="url" name="listingImage3" data-image-url="image3" placeholder="Input url here...">
                 </div>
-                <div class="">
+                <div>
                   <input class="border border-cn-black" type="url" name="listingImage4" data-image-url="image4" placeholder="Input url here...">
                 </div>
               </div>
@@ -141,62 +135,6 @@
       <div class="container overflow-hidden">
         <h2 class="mt-3 mb-5">Bidding history</h2>
         <div class="flex gap-3 overflow-x-auto pb-5" id="biddingHistoryContainer">
-          <!-- <div class="bg-cn-white rounded-bl-md rounded-3xl p-3 flex gap-4 w-72 md:w-96 items-center flex-shrink-0">
-            <img
-              src="/media/3d-cash-money.jpg"
-              class="border rounded-full size-16 object-cover"
-              alt=""
-            />
-            <div class="flex flex-col md:flex-row w-full md:justify-between md:items-center">
-              <div>
-                <h3 class="leading-none">Name Nameson</h3>
-                <p class="text-sm">8. March 2024</p>
-              </div>
-              <p class="text-xl font-bold">$ 30.00</p>
-            </div>
-          </div>
-          <div class="bg-cn-white rounded-bl-md rounded-3xl p-3 flex gap-4 w-72 md:w-96 items-center flex-shrink-0">
-            <img
-              src="/media/3d-cash-money.jpg"
-              class="border rounded-full size-16 object-cover"
-              alt=""
-            />
-            <div class="flex flex-col md:flex-row w-full md:justify-between md:items-center">
-              <div>
-                <h3 class="leading-none">Name Nameson</h3>
-                <p class="text-sm">8. March 2024</p>
-              </div>
-              <p class="text-xl font-bold">$ 30.00</p>
-            </div>
-          </div>
-          <div class="bg-cn-white rounded-bl-md rounded-3xl p-3 flex gap-4 w-72 md:w-96 items-center flex-shrink-0">
-            <img
-              src="/media/3d-cash-money.jpg"
-              class="border rounded-full size-16 object-cover"
-              alt=""
-            />
-            <div class="flex flex-col md:flex-row w-full md:justify-between md:items-center">
-              <div>
-                <h3 class="leading-none">Name Nameson</h3>
-                <p class="text-sm">8. March 2024</p>
-              </div>
-              <p class="text-xl font-bold">$ 30.00</p>
-            </div>
-          </div>
-          <div class="bg-cn-white rounded-bl-md rounded-3xl p-3 flex gap-4 w-72 md:w-96 items-center flex-shrink-0">
-            <img
-              src="/media/3d-cash-money.jpg"
-              class="border rounded-full size-16 object-cover"
-              alt=""
-            />
-            <div class="flex flex-col md:flex-row w-full md:justify-between md:items-center">
-              <div>
-                <h3 class="leading-none">Name Nameson</h3>
-                <p class="text-sm">8. March 2024</p>
-              </div>
-              <p class="text-xl font-bold">$ 30.00</p>
-            </div>
-          </div> -->
         </div>
       </div>
     </section>

@@ -34,7 +34,7 @@
         </nav>
         <div class="hidden lg:flex items-center gap-2 relative" id="searchContainer">
           <img src="/media/search.svg" class="size-6 hidden lg:block" alt="search-icon">
-          <input type="search" placeholder="Search..." class="max-w-32 sm:max-w-52 w-full" aria-label="search-input" id="searchInput"/>
+          <input type="search" placeholder="Search..." class="max-w-32 sm:max-w-52 w-full" aria-label="search-input" id="searchInput">
           <div class="hidden p-1 absolute -left-10 lg:left-0 top-10 w-[16rem] lg:w-full max-h-[30rem] overflow-y-auto z-10 bg-cn-white">
             <ul id="searchResults"></ul>
             <div class="hidden alert" id="searchAlertMessage" role="alert"></div>
@@ -58,8 +58,8 @@
           Don´t miss out, sign up now!
         </div>
       </div>
-      <div class="">
-        <img src="/media/3d-cash-money.png" alt="" class="w-24 mx-auto">
+      <div>
+        <img src="/media/3d-cash-money.png" alt="An animated illustration of a money bag character with eyes" class="w-24 mx-auto">
         <a href="/register/" class="btn whitespace-nowrap">Sign up</a>
       </div>
     </div>
@@ -70,40 +70,19 @@
       <h2 class="py-3">Categories</h2>
       <div class="grid-flow-col flex flex-wrap gap-3 mb-5">
         <div class="max-w-34 sm:max-w-80 border-solid border-cn-orange ">
-          <img src="/media/3d-cash-money.jpg" alt="" class="max-h-34 rounded-t-2xl">
+          <img src="/media/3d-cash-money.jpg" alt="An animated illustration of a money bag character with eyes" class="max-h-34 rounded-t-2xl">
           <div class="flex justify-center bg-cn-black text-cn-white rounded-bl-md rounded-br-2xl py-2 px-3">
             <p>CATEGORY</p>
           </div>
         </div>
       </div>
-
       <h2 class="py-3">Explore new listing</h2>
-      <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10" id="allListingsContainer">
-        
-        <!-- <div class="max-w-34 md:max-w-80 border-solid border-cn-orange ">
-          <img src="/media/3d-cash-money.jpg" alt="" class="max-h-34 rounded-t-2xl">
-          <div class="flex justify-between bg-cn-white rounded-bl-md rounded-br-2xl py-2 px-3">
-            <p>JEANS</p>
-            <p>$ 10</p>
-          </div>
-        </div>
-        <div class="max-w-34 md:max-w-80 border-solid border-cn-orange ">
-          <img src="/media/3d-cash-money.jpg" alt="" class="max-h-34 rounded-t-2xl">
-          <div class="flex justify-between bg-cn-white rounded-bl-md rounded-br-2xl py-2 px-3">
-            <p>EXAMPLE</p>
-            <p>$ 10</p>
-          </div>
-        </div> -->
-
-      </div>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10" id="allListingsContainer"></div>
     </div>
     <div class="flex p-10 mb-10" id="loadMoreContainer">
       <button type="button" class="mx-auto bg-cn-orange text-cn-black" id="loadMoreListingsBtn">More &plus;</button>
     </div>
   </section>
-
-
-  
   
   <footer class="bg-cn-orange fixed bottom-0 w-full lg:relative mt-auto">
     <div class="container flex justify-between items-center lg:hidden">
