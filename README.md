@@ -4,9 +4,10 @@
 ## Semester Projec 2
 
 Welcome to Crow's Nest - Auction Site, an online platform designed for users to buy and sell items through an interactive bidding system. With Crow's Nest, users can list their items for auction, place bids on items they desire, and engage in a dynamic marketplace experience.
----
-[Crow's Nest live site](https://euphonious-mochi-17b774.netlify.app/)
 
+---
+
+[Crow's Nest live site](https://euphonious-mochi-17b774.netlify.app/)
 
 ## Website architecture:
 
