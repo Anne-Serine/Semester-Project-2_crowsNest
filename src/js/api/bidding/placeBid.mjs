@@ -15,7 +15,6 @@ export async function placeBid(inputValue, id) {
       }),
     });
     if(response.ok) {
-      console.log(response)
       return await response.json();
     } else {
       throw new Error;

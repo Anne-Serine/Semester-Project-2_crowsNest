@@ -62,7 +62,6 @@ export async function setBiddingAmount(item) {
 
   // Submit the bid value in input
   placeBidBtn.addEventListener("click", () => {
-    console.log(currentBid)
     placeBid(currentBid, item.id).then(() => {
       viewSingleListing();
       viewSingleProfile();

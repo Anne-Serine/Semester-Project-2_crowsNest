@@ -14,10 +14,8 @@ export async function viewAllListings(listingPage) {
   if(allListingsContainer) {
     // loadingIndicator
     
-    const url = API_BASE + API_ALL_LISTINGS + `?page=${page}&limit=${limit}&sort=created`;
-    console.log(url)
+    const url = API_BASE + API_ALL_LISTINGS + `?page=${page}&limit=${limit}&sort=created&_bids=true`;
     const listings = await getAllListings(url);
-    console.log(listings)
 
     if(!listings) {
       allListingsContainer.innerHTML = "<div> Oops! Looks like we've reached the end of the treasure map! In the meantime, feel free to grab a snack, and stretch those bidding muscles!  </div>"

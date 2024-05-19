@@ -24,7 +24,6 @@ export async function createNewListing(title, endsAt, description, media) {
       method: "POST",
       body: JSON.stringify(object),
     });
-    console.log(object)
     if(response.ok) {
       return await response.json();
     } else {

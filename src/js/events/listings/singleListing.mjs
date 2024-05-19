@@ -28,7 +28,7 @@ export async function viewSingleListing() {
     
     for(let i = 0; i < item.media.length; i++) {
       productImage2.innerHTML += `<div class="relative max-h-[10rem] overflow-hidden rounded-xl md:rounded-3xl flex items-center">
-      <img src="${item.media[i].url}" class="object-cover">
+      <img src="${item.media[i].url}" class="object-cover w-full h-full">
       </div>`
     }
     const thumbnails = document.querySelectorAll("#productImage2 img");

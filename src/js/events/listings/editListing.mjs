@@ -52,7 +52,6 @@ export async function editListingEvent(id) {
     if(data.title.length > 0) {
 
       editListing(data.title, data.description, media, id).then( () => {
-        console.log("updated")
         viewSingleListing();
         imageUrls.forEach((input) => {
           if(input.value.length === 0) {

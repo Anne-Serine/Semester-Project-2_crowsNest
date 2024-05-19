@@ -29,7 +29,6 @@ export async function updateSingleProfile(userAvatar, avatarUrl) {
         }
       });
       const user = profile.data;
-      console.log(user)
       userAvatar.setAttribute("src", user.avatar.url);
       userAvatar.setAttribute("alt", user.avatar.alt);
 

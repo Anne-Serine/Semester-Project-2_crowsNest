@@ -24,7 +24,6 @@ export async function editListing(title, description, media, id) {
       body: JSON.stringify(object),
     });
     if(response.ok) {
-      console.log(response)
       return await response.json();
     } else {
       throw new Error(response.status + " Was not able to edit listing.");
