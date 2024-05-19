@@ -1,4 +1,9 @@
+<img width="1681" alt="Skjermbilde 2024-05-19 kl  15 15 02" src="https://github.com/Anne-Serine/Semester-Project-2_crowsNest/assets/125912893/fb0f043b-ed85-4dd9-bda1-c15a615e7eb7">
+
 # Crow's Nest - Auction site
+## Semester Projec 2
+
+Welcome to Crow's Nest - Auction Site, an online platform designed for users to buy and sell items through an interactive bidding system. With Crow's Nest, users can list their items for auction, place bids on items they desire, and engage in a dynamic marketplace experience.
 ---
 [Crow's Nest live site](https://euphonious-mochi-17b774.netlify.app/)
 
