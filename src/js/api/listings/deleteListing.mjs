@@ -13,7 +13,6 @@ export async function deleteListing(id) {
       },
     })
     if(response.ok) {
-      console.log(response)
       return response;
     } else {
       if (response.status === 401) throw new Error("401, Unauthorized");

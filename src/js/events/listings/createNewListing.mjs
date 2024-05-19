@@ -1,4 +1,5 @@
 import { createNewListing } from "../../api/listings/createNewListing.mjs";
+import { showStatusMessage } from "../../helpers/showStatusMessage.mjs";
 
 export async function setCreateNewListingEvent() {
   const form = document.querySelector("#createNewListingForm");
@@ -17,9 +18,11 @@ export async function setCreateNewListingEvent() {
       const imageUrlInput = form.querySelector(`[data-image-url="${e.target.value}"]`);
       const modalImageInput = addImageModal.querySelector("#image");
       const listingImage = form.querySelector(`[data-image="${e.target.value}"]`);
-      listingImage.setAttribute("src", modalImageInput.value);
-      imageUrlInput.value = modalImageInput.value;
-      modalImageInput.value = "";
+      if (modalImageInput.value.length > 0) {
+        listingImage.setAttribute("src", modalImageInput.value);
+        imageUrlInput.value = modalImageInput.value;
+        modalImageInput.value = "";
+      }
       addImageModal.close();
     })
 
@@ -46,9 +49,11 @@ export async function setCreateNewListingEvent() {
           const formInputs = form.querySelectorAll("[data-form-input]");
           formInputs.forEach((input) => {
             input.value = "";
-
           })
-  
+          listingImages.forEach((image) => {
+            image.setAttribute("src", "/media/placeholder.jpg")
+          })
+          showStatusMessage("success", "Listing created successfully!", "#createListingStatus", true)
         });
       }
     })

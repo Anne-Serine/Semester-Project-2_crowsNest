@@ -33,7 +33,6 @@ export async function viewSingleProfile() {
 
     if (profileListingsContainer) {
       const data = await getProfileListings(user.name);
-      console.log(data)
       data.data.forEach(element => {
         profileListingsContainer.innerHTML += createListingCard(element);
       });

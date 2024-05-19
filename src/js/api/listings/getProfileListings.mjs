@@ -3,7 +3,7 @@ import { API_BASE, API_SINGLE_PROFILE, API_KEY } from '../constants.mjs';
 
 export async function getProfileListings(userName) {
   try {
-    const postURL = API_BASE + API_SINGLE_PROFILE + `/${userName}/listings`;
+    const postURL = API_BASE + API_SINGLE_PROFILE + `/${userName}/listings?_bids=true`;
 
     const response = await fetch(postURL, {
       headers: {

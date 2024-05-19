@@ -11,14 +11,18 @@ export function initCountdown(targetDate) {
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
   
       // Display the countdown
-      document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-      + minutes + "m " + seconds + "s ";
-  
-      // If the countdown is over, display a message
-      if (distance < 0) {
-          clearInterval(interval);
-          document.getElementById("countdown").innerHTML = "EXPIRED";
+      const countdownContainer = document.getElementById("countdown");
+      if (countdownContainer) {
+        countdownContainer.innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+    
+        // If the countdown is over, display a message
+        if (distance < 0) {
+            clearInterval(interval);
+            document.getElementById("countdown").innerHTML = "EXPIRED";
+        }
       }
+      
     }
     
     // Update the countdown every second
